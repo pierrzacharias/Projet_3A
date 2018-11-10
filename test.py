@@ -17,7 +17,7 @@ print(matrice_coulomb_i)
 
 # comme matrice_coulomb_i est symetrique on garde que la partie inférieure de la matrice 
 # que l'on place dans un vecteur colonne 
-#
+
 
 # on teste le réarangement sur une petite matrice 
 Coulomb_matrix_c = matrice_coulomb_i
