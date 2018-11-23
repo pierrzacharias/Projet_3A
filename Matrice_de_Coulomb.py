@@ -27,6 +27,10 @@ contenu_fichier_xyz = contenu_fichier_xyz.splitlines()
 matrice_coulomb = open("matrice_coulomb.txt","wb")
 matrice_coulomb_pickler = pickle.Pickler(matrice_coulomb)
 
+# creation fichier energie_atomisation dans lequel on stocke les énergie d'atomisation dans le meme ordre
+energie_atomisation = open("energie_atomisation.txt","wb")
+energie_atomisation_pickler = pickle.Pickler(energie_atomisation)
+
 ###############################################################
 # nous parcourons le fichier molécule par molécule et on calcule la matrice de Coulomb associé,
 # que l'on réarange par norme descendante et dont on ne garde que la partie inférieure car symétrique
@@ -37,12 +41,14 @@ while roam < len(contenu_fichier_xyz):
     # on utilise le nombre d'atome de chaque molécule pour parcourir le fichier en sautant l'energie d'atomisation 
     number_of_atom = int(contenu_fichier_xyz[roam])
     
+    energie_atomisation_c = float(contenu_fichier_xyz[ roam + 1 ].split()[1])
     ###########################################################
     # nous parcourons les atomes pour une molécule 
     ###########################################################
     
     list_atomic_number = [] # liste des numéros atomiques
     list_positions = [] # liste des positions des atomes
+    
     for atom in range(number_of_atom): # on saute l'energie d'atomisation 
         
         current_atom_xyz = contenu_fichier_xyz[atom + roam + 2]
@@ -111,6 +117,7 @@ while roam < len(contenu_fichier_xyz):
     ###################################################################
     
     matrice_coulomb_pickler.dump(Coulomb_matrix_vector)
+    energie_atomisation_pickler.dump(energie_atomisation_c)
     
     ###################################################################
     roam += number_of_atom + 2 # passage à la prochaine molécule
@@ -120,6 +127,6 @@ while roam < len(contenu_fichier_xyz):
 # fermeture des fichiers
 fichier_xyz.close()
 matrice_coulomb.close()
-
+energie_atomisation.close()
 
     
