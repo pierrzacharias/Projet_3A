@@ -103,12 +103,13 @@ while roam < len(contenu_fichier_xyz):
     ###################################################################
     # on ne garde que la partie inférieure de la matrice car symetrique
     ###################################################################
-    Coulomb_matrix_vector = np.zeros((276,1))
+    Coulomb_matrix_vector = [0] * 276
     k = 0
     # nous parcourons la matrice de coulomb par ligne croissante
     for i in range(number_of_atom): 
         for j in range(i + 1):
             Coulomb_matrix_vector[k] = Coulomb_matrix_c[i][j]
+            #Coulomb_matrix_vector[:,k] = Coulomb_matrix_c[i][j]
             k += 1
     # print(Coulomb_matrix_vector)
     

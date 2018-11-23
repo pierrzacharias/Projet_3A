@@ -21,46 +21,35 @@ matrice_coulomb_depickler = pickle.Unpickler(matrice_coulomb)
 energie_atomisation = open('energie_atomisation.txt','rb')
 energie_atomisation_depickler = pickle.Unpickler(energie_atomisation)
 
-X_dataset, Y_dataset = [], []
+X_dataset, Y_dataset = np.array([matrice_coulomb_depickler.load()]), np.array([energie_atomisation_depickler.load()])
+
 continuer = True
+i = 0
 while continuer == True:
     try:
-        X_dataset.append( matrice_coulomb_depickler.load() )
-        Y_dataset.append( energie_atomisation_depickler.load() )
+        X_dataset = np.insert(X_dataset,i,matrice_coulomb_depickler.load(), axis=0)
+        Y_dataset = np.append(Y_dataset,energie_atomisation_depickler.load())
+        i += 1
     except:
         continuer = False    
 # print(X_dataset[:10])
 matrice_coulomb.close()
 energie_atomisation.close()
 
-X_train, X_test, y_train, y_test = model_selection.train_test_split(X_dataset,Y_dataset,test_size=.1)
-i = 0
-continuer = True
-while continuer:
-    try:
-        X_dataset[i]
-        i += 1
-    except:
-        continuer = False
-print(i)
-i = 0
-continuer = True
-while continuer:
-    try:
-        Y_dataset[i]
-        i += 1
-    except:
-        continuer = False
-print(i)
-# ###################### modele KernelRidge ####################################
+# faut-il normaliser ?
+# autr methode data_array = np.loadtxt("matrice_coulomb.txt")
+# ###################### entrainement du modèle ################################
 
+# on separe la base en une base de test et une base d'apprentissage
+X_train, X_test, y_train, y_test = model_selection.train_test_split(X_dataset, Y_dataset, test_size=.1)
+
+# recherche du parametre optimal 
 # alpha = (2*C)^-1, C = 1/2*alpha
 kr_opti = GridSearchCV(KernelRidge(kernel='rbf', gamma=0.1), cv=5,
                   param_grid={"alpha": [np.logspace(0, 1, 50)],
                               "gamma": np.logspace(-10, 0.1,10)}, verbose=True,
                   return_train_score = True)
-# can use cv for cross-valisation 
-
+ 
 kr_opti.fit(X_train, y_train)
 
 print("score KRR OTIMISEE %.3f" % kr_opti.score(X_test, y_test) )
