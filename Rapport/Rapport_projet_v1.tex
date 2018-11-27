@@ -1,19 +1,73 @@
 % <<<<<< Rapport projet de troisième année >>>>>>
 
-\documentclass[a4paper]{report} 
+\documentclass[a4paper,12pt,titlepage]{report}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
-\usepackage{geometry}
+\usepackage[a4paper]{geometry}
 \usepackage[french]{babel}
-\usepackage{wrapfig}
+\usepackage{amsmath}
+\usepackage{mathcmd}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{graphicx}
+\usepackage{appendix}
+\usepackage{hyperref}
+\usepackage{subcaption}
 \usepackage{setspace}
-\usepackage{url}
-\usepackage{layout}
-\usepackage{paracol}
-\usepackage{enumitem}
-
+\usepackage[intoc]{nomencl}
+%\usepackage{algorithm}
+%\usepackage{listing}
+\usepackage{verbatim}
+\makenomenclature
+\makeindex
 
 \begin{document}
+
+
+%==================================== Page de Garde ==============================
+\begin{titlepage}
+ 
+	\begin{center}
+	\begin{figure}[!h]
+	\centering	
+		\begin{subfigure}[b]{0.3\textwidth}
+		\includegraphics[height = 2cm, keepaspectratio]{graphes/mines_nancy.png}
+		\end{subfigure}
+		\begin{subfigure}[b]{0.3\textwidth}
+		\includegraphics[height = 2cm, keepaspectratio]{graphes/elie_cartan.png}
+		\end{subfigure}
+		\begin{subfigure}[b]{0.3\textwidth}
+		\includegraphics[height = 2cm, keepaspectratio]{graphes/univ_lorraine.png}
+	\end{subfigure}
+	\end{figure}
+ 
+	\textsc{École nationale supérieure des Mines de Nancy}\\[2cm]
+	\textsc{Rapport de projet 3A}\\[1cm]
+	\textsc{Pierre Gauthier}\\[1cm]
+ 
+	\begin{doublespace}
+		{ \huge \bfseries{Algorithme d'apprentissage en chimie quantique et application au screening (sélection) de cellules photovoltaïques}}\\[2cm]
+	\end{doublespace}
+	\textmd{Laboratoire : Institut Élie Cartan}\\[1cm]
+	\textmd{Tuteurs : Dario Rocca et Marianne Clausel}
+	% Bottom of the page
+	\vfill
+	{\textit{{\large 21 Novembre 2018}}}
+ 
+	\end{center}
+\end{titlepage}
+
+%================= Table des matières ===============================
+\tableofcontents
+
+\newpage
+
+
+
+%======================== Introduction ==============================
+\textbf{\Huge Introduction:}
+
+\chapter{Position du problème}
 
 \end{document}
