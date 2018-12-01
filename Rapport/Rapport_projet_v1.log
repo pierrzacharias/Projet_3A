@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2017.11.26)  27 NOV 2018 15:59
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2017.11.26)  1 DEC 2018 16:53
 entering extended mode
 **./Rapport_projet_v1.tex
 (Rapport_projet_v1.tex
@@ -521,9 +521,6 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 713.
 LaTeX Info: Redefining \[ on input line 2817.
 LaTeX Info: Redefining \] on input line 2818.
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\bosisio\mathcmd.sty"
-Package: mathcmd 1997/12/20 v2.2 Extensions to math environments (FB)
-)
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\amssymb.sty"
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
 
@@ -714,33 +711,24 @@ Package: verbatim 2014/10/28 v1.5q LaTeX2e package for verbatim enhancements
 \verbatim@line=\toks28
 \verbatim@in@stream=\read1
 )
-\@nomenclaturefile=\write3
-\openout3 = `Rapport_projet_v1.nlo'.
-
-
-Writing nomenclature file Rapport_projet_v1.nlo
-\@indexfile=\write4
-\openout4 = `Rapport_projet_v1.idx'.
-
-Writing index file Rapport_projet_v1.idx
 (Rapport_projet_v1.aux)
 \openout1 = `Rapport_projet_v1.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Try loading font information for T1+lmr on input line 25.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Try loading font information for T1+lmr on input line 23.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\lm\t1lmr.fd"
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
@@ -778,9 +766,9 @@ File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Info: Redefining \degres on input line 25.
-LaTeX Info: Redefining \dots on input line 25.
-LaTeX Info: Redefining \up on input line 25.
+LaTeX Info: Redefining \degres on input line 23.
+LaTeX Info: Redefining \dots on input line 23.
+LaTeX Info: Redefining \up on input line 23.
 ("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count128
@@ -808,7 +796,7 @@ G,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 456.
 )
 \AtBeginShipoutBox=\box29
-Package hyperref Info: Link coloring OFF on input line 25.
+Package hyperref Info: Link coloring OFF on input line 23.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\nameref.sty"
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
@@ -818,39 +806,39 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count134
 )
-LaTeX Info: Redefining \ref on input line 25.
-LaTeX Info: Redefining \pageref on input line 25.
-LaTeX Info: Redefining \nameref on input line 25.
+LaTeX Info: Redefining \ref on input line 23.
+LaTeX Info: Redefining \pageref on input line 23.
+LaTeX Info: Redefining \nameref on input line 23.
 
 (Rapport_projet_v1.out) (Rapport_projet_v1.out)
-\@outlinefile=\write5
-\openout5 = `Rapport_projet_v1.out'.
+\@outlinefile=\write3
+\openout3 = `Rapport_projet_v1.out'.
 
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
 <graphes/mines_nancy.png, id=7, 313.17pt x 161.60374pt>
 File: graphes/mines_nancy.png Graphic file (type png)
 <use graphes/mines_nancy.png>
-Package pdftex.def Info: graphes/mines_nancy.png  used on input line 35. on inp
-ut line 35.
+Package pdftex.def Info: graphes/mines_nancy.png  used on input line 33. on inp
+ut line 33.
 Package pdftex.def Info: Requested size: 110.27536pt x 56.9055pt on input line 
-35.
+33.
 <graphes/elie_cartan.png, id=9, 332.24126pt x 152.57pt>
 File: graphes/elie_cartan.png Graphic file (type png)
 <use graphes/elie_cartan.png>
-Package pdftex.def Info: graphes/elie_cartan.png  used on input line 38. on inp
-ut line 38.
+Package pdftex.def Info: graphes/elie_cartan.png  used on input line 36. on inp
+ut line 36.
 Package pdftex.def Info: Requested size: 123.92097pt x 56.9055pt on input line 
-38.
+36.
 <graphes/univ_lorraine.png, id=10, 339.2675pt x 149.55875pt>
 File: graphes/univ_lorraine.png Graphic file (type png)
 <use graphes/univ_lorraine.png>
-Package pdftex.def Info: graphes/univ_lorraine.png  used on input line 41. on i
-nput line 41.
+Package pdftex.def Info: graphes/univ_lorraine.png  used on input line 39. on i
+nput line 39.
 Package pdftex.def Info: Requested size: 129.08864pt x 56.9055pt on input line 
-41.
+39.
 
-Overfull \hbox (3.61127pt too wide) in paragraph at lines 41--42
+Overfull \hbox (3.61127pt too wide) in paragraph at lines 39--40
 [][] 
  []
 
@@ -859,45 +847,154 @@ Overfull \hbox (3.61127pt too wide) in paragraph at lines 41--42
 {C:/Users/pierr/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <./graphes/m
 ines_nancy.png> <./graphes/elie_cartan.png> <./graphes/univ_lorraine.png>]
 (Rapport_projet_v1.toc)
-\tf@toc=\write6
-\openout6 = `Rapport_projet_v1.toc'.
+\tf@toc=\write4
+\openout4 = `Rapport_projet_v1.toc'.
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.64 \newpage
+l.62 \newpage
               [1
 
-] [2]
+]
+Underfull \hbox (badness 10000) in paragraph at lines 67--69
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 67--69
+
+ []
+
+[2]
 Chapitre 1.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 74.
-[3
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 76.
+("C:\Program Files\MiKTeX 2.9\tex\latex\lm\ot1lmr.fd"
+File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 76.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\lm\omllmm.fd"
+File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 76.
+
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\lm\omslmsy.fd"
+File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 76.
+
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\lm\omxlmex.fd"
+File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <12> on input line 76.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <8> on input line 76.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <6> on input line 76.
+LaTeX Font Info:    Try loading font information for U+msa on input line 76.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 76.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+LaTeX Font Info:    Try loading font information for U+rsfs on input line 76.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\jknappen\ursfs.fd"
+File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
+)
+<graphes/SVM_donnee.png, id=33, 462.528pt x 345.4506pt>
+File: graphes/SVM_donnee.png Graphic file (type png)
+<use graphes/SVM_donnee.png>
+Package pdftex.def Info: graphes/SVM_donnee.png  used on input line 82. on inpu
+t line 82.
+Package pdftex.def Info: Requested size: 190.4846pt x 142.26378pt on input line
+ 82.
+<graphes/SVM_separee.png, id=34, 462.528pt x 345.4506pt>
+File: graphes/SVM_separee.png Graphic file (type png)
+<use graphes/SVM_separee.png>
+Package pdftex.def Info: graphes/SVM_separee.png  used on input line 83. on inp
+ut line 83.
+Package pdftex.def Info: Requested size: 190.4846pt x 142.26378pt on input line
+ 83.
+ [3
+
+ <./graphes/SVM_donnee.png> <./graphes/SVM_separee.png>]
+<graphes/svm05.png, id=50, 642.4pt x 507.91626pt>
+File: graphes/svm05.png Graphic file (type png)
+<use graphes/svm05.png>
+Package pdftex.def Info: graphes/svm05.png  used on input line 99. on input lin
+e 99.
+Package pdftex.def Info: Requested size: 215.91354pt x 170.71652pt on input lin
+e 99.
+ [4 <./graphes/svm05.png (PNG copy)>]
+<graphes/mnoyaux05.png, id=58, 877.94667pt x 222.88878pt>
+File: graphes/mnoyaux05.png Graphic file (type png)
+<use graphes/mnoyaux05.png>
+Package pdftex.def Info: graphes/mnoyaux05.png  used on input line 138. on inpu
+t line 138.
+Package pdftex.def Info: Requested size: 448.29613pt x 113.81102pt on input lin
+e 138.
+
+Overfull \hbox (30.04245pt too wide) in paragraph at lines 138--139
+[][] 
+ []
+
+[5 <./graphes/mnoyaux05.png (PNG copy)>]
+Chapitre 2.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 146.
+[6
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 74.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 146.
  (Rapport_projet_v1.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 74.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 74.
-Package rerunfilecheck Info: File `Rapport_projet_v1.out' has not changed.
-(rerunfilecheck)             Checksum: A43BD656A959192EE25FF9A4E45031CC;59.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 74.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 146.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 146.
+
+
+Package rerunfilecheck Warning: File `Rapport_projet_v1.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `Rapport_projet_v1.out':
+(rerunfilecheck)             Before: 913C198D01FBB54CB9AB35178006DA17;75
+(rerunfilecheck)             After:  F33BBCA2468B301594160DB5C3BB6ECF;127.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 146.
  ) 
 Here is how much of TeX's memory you used:
- 9395 strings out of 493312
- 137300 string characters out of 3138898
- 234386 words of memory out of 3000000
- 12806 multiletter control sequences out of 15000+200000
- 28031 words of font info for 23 fonts, out of 3000000 for 9000
+ 9486 strings out of 493312
+ 139570 string characters out of 3138898
+ 236046 words of memory out of 3000000
+ 12853 multiletter control sequences out of 15000+200000
+ 46765 words of font info for 44 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,7n,40p,284b,444s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ec.enc}<C:/Program Files/M
-iKTeX 2.9/fonts/type1/public/lm/lmbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/t
-ype1/public/lm/lmcsc10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/l
-mr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmri12.pfb>
-Output written on Rapport_projet_v1.pdf (4 pages, 119926 bytes).
+ 42i,17n,40p,720b,444s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathex.enc}{C:/Program Fil
+es/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathit.enc}{C:/Program Files/MiKTeX 2.9/fon
+ts/enc/dvips/lm/lm-mathsy.enc}{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/l
+m-rm.enc}{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ec.enc}<C:/Program 
+Files/MiKTeX 2.9/fonts/type1/public/lm/lmbx12.pfb><C:/Program Files/MiKTeX 2.9/
+fonts/type1/public/lm/lmcsc10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publ
+ic/lm/lmex10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmmi12.pfb>
+<C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmmi6.pfb><C:/Program Files/
+MiKTeX 2.9/fonts/type1/public/lm/lmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/t
+ype1/public/lm/lmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmr
+8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmri12.pfb><C:/Program
+ Files/MiKTeX 2.9/fonts/type1/public/lm/lmsy10.pfb><C:/Program Files/MiKTeX 2.9
+/fonts/type1/public/lm/lmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publi
+c/amsfonts/symbols/msam10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/a
+msfonts/symbols/msbm10.pfb>
+Output written on Rapport_projet_v1.pdf (7 pages, 413310 bytes).
 PDF statistics:
- 56 PDF objects out of 1000 (max. 8388607)
- 7 named destinations out of 1000 (max. 500000)
- 24 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 123 PDF objects out of 1000 (max. 8388607)
+ 14 named destinations out of 1000 (max. 500000)
+ 44 words of extra memory for PDF output out of 10000 (max. 10000000)
 
