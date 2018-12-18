@@ -17,8 +17,9 @@ from math import log2
 from matplotlib import ticker, cm   
 ################################################################################
 plt.close()
-
+start_time = time.time()
 # ######################## lecture des donnees #################################
+#def data():
 matrice_coulomb = open('matrice_coulomb.txt', 'rb')
 matrice_coulomb_depickler = pickle.Unpickler(matrice_coulomb)
 energie_atomisation = open('energie_atomisation.txt','rb')
@@ -69,11 +70,8 @@ X_train,Y_train,test_size= 100,train_size = 900 - len(X_under_4_H),random_state=
 
 # on ajoute les molecule <5-non-H-atoms dans la base de train 
 X_training_set = np.concatenate((X_under_4_H,X_training_set),axis=0)
-Y_training_set = np.concatenate((Y_under_4_H,Y_training_set))
+Y_training_set = np.concatenate((Y_under_4_H,Y_training_set))   
 
-
-   
-    #return None
 
 ################################################################################
 # ###################### entrainement du modele ################################
@@ -116,37 +114,44 @@ scoring_dict = {'RMSE' : metrics.make_scorer(RMSE),
 #results = kr_opti.cv_results_
 #print("results", results)
 
-alpha_grid_log2 = np.linspace(-50,-5, 50)
+alpha_grid_log2 = np.linspace(-30,-5, 50)
+
+alpha_grid_log2 = np.arange(-30,-5, 0.5)
 alpha_grid = [2**i for i in  alpha_grid_log2]
 
-alpha_grid = np.linspace(1e-20,0.001,10)
-alpha_grid_log2 = [log2(i) for i in  alpha_grid]
+#alpha_grid = np.linspace(1e-15,1e-4,50)
+#alpha_grid_log2 = [log2(i) for i in  alpha_grid]
 
 
-gamma_grid_log2 = np.linspace(1,20, 1)
+gamma_grid_log2 = np.linspace(-30,-10,10)
+gamma_grid_log2 = np.arange(-30,-5,0.5)
 gamma_grid = [2**i for i in gamma_grid_log2]
 
-gamma_grid = np.linspace(1e-20,1e-5,30)
-gamma_grid_log2 = [log2(i) for i in  gamma_grid]
+#gamma_grid = np.linspace(1e-25,1e-1,5)
+#gamma_grid_log2 = [log2(i) for i in  gamma_grid]
 #gamma_grid = np.linspace(1e-6,1e-0.00024, 2)
 # stockage des score pour les differentes mesure
 RMSE_SCORE = []
 MAE_SCORE = []
 R2_SCORE = []
 
-#for alpha in alpha_grid: 
-    #for gamma in gamma_grid:
-        ##gamma = 1e-4
-        #kr = KernelRidge(kernel='rbf', gamma = gamma, alpha = alpha)
-        #kr.fit(X_training_set,Y_training_set)         
-        #Y_kr_pred = kr.predict(X_hold_out_set)
-        #RMSE_SCORE.append(RMSE(Y_hold_out_set,Y_kr_pred))
+min_RMSE = 1e6 
+for alpha in alpha_grid: 
+    for gamma in gamma_grid:
+        #gamma = 1e-4
+        kr = KernelRidge(kernel='rbf', gamma = gamma, alpha = alpha)
+        kr.fit(X_training_set,Y_training_set)         
+        Y_kr_pred = kr.predict(X_hold_out_set)
+        RMSE_SCORE.append(RMSE(Y_hold_out_set,Y_kr_pred))
         
-        ##print((alpha,gamma),'score RMSE =',RMSE(Y_hold_out_set,Y_kr_pred))
+        if RMSE_SCORE[-1] < min_RMSE: 
+            alpha_min, gamma_min = alpha, gamma
+            min_RMSE = RMSE_SCORE[-1]
+        #print((alpha,gamma),'score RMSE =',RMSE(Y_hold_out_set,Y_kr_pred))
         
-        ##MAE_SCORE.append(MAE(Y_hold_out_set,Y_kr_pred))
-        ##R2_SCORE.append(R2(Y_hold_out_set,Y_kr_pred))
-    #print(min(RMSE_SCORE))
+        #MAE_SCORE.append(MAE(Y_hold_out_set,Y_kr_pred))
+        #R2_SCORE.append(R2(Y_hold_out_set,Y_kr_pred))
+
 
 #print('alpha=',alpha , min(RMSE_SCORE))
 def plot_alpha():    
@@ -164,29 +169,36 @@ def plot_alpha():
 
 # remplissage sur la grille a partir des scores calcules
 
-def plot_mesh():
-    X_mesh, Y_mesh = np.meshgrid(gamma_grid_log2, alpha_grid_log2)    
-    Z_mesh_RMSE = np.zeros(X_mesh.shape)
-    k = 0
-    for i in range(Z_mesh_RMSE.shape[0]):
-        for j in range(Z_mesh_RMSE.shape[1]):
-            Z_mesh_RMSE[i][j] = RMSE_SCORE[k]
-            k += 1 
-    fig, ax = plt.subplots()  
-    #ax.set_ylim(log2(min(alpha_grid))-200,log2(max(alpha_grid))+200)
-    #ax.set_xlim(log2(min(gamma_grid))-200,log2(max(gamma_grid))+200)
-    CS = ax.contour(X_mesh, Y_mesh, Z_mesh_RMSE,1000)
-    
-                    
-    
-    #x.set_title('Simplest default with labels')
-    ax.set_xlabel(r'$\sigma$')
-    ax.set_ylabel(r'$\alpha$')
-    fig.colorbar(CS)
-    plt.show()   
-    return None
+
+X_mesh, Y_mesh = np.meshgrid(gamma_grid_log2, alpha_grid_log2)    
+Z_mesh_RMSE = np.zeros(X_mesh.shape)
+k = 0
+for i in range(Z_mesh_RMSE.shape[0]):
+    for j in range(Z_mesh_RMSE.shape[1]):
+        Z_mesh_RMSE[i][j] = RMSE_SCORE[k]
+        k += 1 
+fig, ax = plt.subplots()  
+#ax.set_ylim(log2(min(alpha_grid))-200,log2(max(alpha_grid))+200)
+#ax.set_xlim(log2(min(gamma_grid))-200,log2(max(gamma_grid))+200)
+CS = ax.contour(X_mesh, Y_mesh, Z_mesh_RMSE,1000)
+
+                
+cp = ax.contour(X_mesh, Y_mesh, Z_mesh_RMSE,colors='black', linestyles='dashed')
+ax.clabel(cp, inline=True, fontsize=10)    
+#x.set_title('Simplest default with labels')
+ax.set_xlabel(r'$\sigma$')
+ax.set_ylabel(r'$\alpha$')
+fig.colorbar(CS)
+plt.show()   
 
 
+# ######################## performance modele ##################################
 
+kr_final = KernelRidge(kernel='rbf', gamma = gamma_min, alpha = alpha_min)
+kr_final.fit(np.concatenate((X_hold_out_set,X_training_set)),
+             np.concatenate((Y_hold_out_set,Y_training_set)))     
+Y_kr_pred_final = kr_final.predict(X_validation)
+print('score final RMSE =',RMSE(Y_validation,Y_kr_pred_final))
 
+print('temps execution = ',time.time() - start_time)
     
