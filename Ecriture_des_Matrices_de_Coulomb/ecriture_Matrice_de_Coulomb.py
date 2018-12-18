@@ -4,12 +4,10 @@
 import numpy as np
 import os as os
 import pickle
-#os.chdir("C:/Users/pierr/Documents/3A/projet/Projet_3A")
+#os.chdir("C:/Users/pierr/Documents/3A/projet/Projet_3A/Ecriture_des_Matrices_de_Coulomb")
 ################################################################################
 
-# ouverture du fichier xyz en écriture
-fichier_xyz = open("dsgdb7ae2.xyz","r")
-contenu_fichier_xyz = fichier_xyz.read()
+
 # pour chaque molécule :
 # ligne 1 : énergie d'atomisation
 # autre ligne coordonnées des atomes (pourquoi 2 sets de coordonnée ? pour quoi ne commence pas à zéro ?)
@@ -31,6 +29,11 @@ matrice_coulomb_pickler = pickle.Pickler(matrice_coulomb)
 energie_atomisation = open("energie_atomisation.txt","wb")
 energie_atomisation_pickler = pickle.Pickler(energie_atomisation)
 
+
+# creation fichier number_of_non_H_atoms dans lequel on stocke le nombre d'atomes non-H
+number_of_non_H = open("number_of_non_H_atoms.txt","wb")
+number_of_non_H_pickler = pickle.Pickler(number_of_non_H)
+
 ###############################################################
 # nous parcourons le fichier molécule par molécule et on calcule la matrice de Coulomb associé,
 # que l'on réarange par norme descendante et dont on ne garde que la partie inférieure car symétrique
@@ -40,7 +43,7 @@ while roam < len(contenu_fichier_xyz):
     
     # on utilise le nombre d'atome de chaque molécule pour parcourir le fichier en sautant l'energie d'atomisation 
     number_of_atom = int(contenu_fichier_xyz[roam])
-    
+    number_of_non_H_atoms = 0 # on compte les atomes non H
     energie_atomisation_c = float(contenu_fichier_xyz[ roam + 1 ].split()[1])
     ###########################################################
     # nous parcourons les atomes pour une molécule 
@@ -56,7 +59,7 @@ while roam < len(contenu_fichier_xyz):
         list_atomic_number.append( AbbrIndex[ current_atom_xyz[0]] ) # utilisation dictionnaire pour trouver le numero atmique
         
         list_positions.append([float(current_atom_xyz[4]), float(current_atom_xyz[5]), float(current_atom_xyz[6])] )# calcul du R 
-    
+        if current_atom_xyz[0] != 'H': number_of_non_H_atoms += 1
     #########################################################
     # calcul Coulomb Matrix 
     #########################################################
@@ -119,7 +122,7 @@ while roam < len(contenu_fichier_xyz):
     
     matrice_coulomb_pickler.dump(Coulomb_matrix_vector)
     energie_atomisation_pickler.dump(energie_atomisation_c)
-    
+    number_of_non_H_pickler.dump(number_of_non_H_atoms)
     ###################################################################
     roam += number_of_atom + 2 # passage à la prochaine molécule
     ####################################################################

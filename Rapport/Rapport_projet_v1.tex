@@ -71,8 +71,11 @@ Ce projet est conduit dans un cadre pédagogique en tant que projet de troisièm
 Le premier objectif du projet est de reproduire les résultats de cette études, et d'explorer des variations dans les paramètres sur l'erreur finale de prédiction. Nous pourrons également dépasser le travail réaliser dans l'étude en travaillant sur des données avec de nouveaux descripteurs qui prennent en compte les propriétés des groupes chimiques des molécules.\\
 Nous allons dans une première partie présenterer les méthodes à vecteur support avec l'astuce des noyaux.
 
-\chapter{Support Vector Machines methods (SVM)}
-
+%%%%%%%%%%%%%%%%%%%%%%%% Chapitre 1 %%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Théorie}
+\label{C1}
+%%%%%%%%%%%%%%%%%%%%%%%%% sectioon 1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Support Vector Machines methods (SVM}
 Le probléme SVM vise à séparer les données $(x_{i},\ y_{i})_{1 \leqslant i \leqslant N},\ x_{i} \in \mathbb{R}, \ y_{i} \in \{-1,\ 1\}$ en deux classes $+1$ et $-1$ à l'aide de la fonction $f(x) = w \cdot x + b \ (b \in \mathbb{R},\ w \in  \mathbb{R}^{d})$ telle que $f(x) > 0 \Rightarrow x \in C_{+1}$, et $f(x) < 0 \Rightarrow x \in C_{-1}$
 
 \begin{figure}[!h]
@@ -141,7 +144,110 @@ par un noyaux reproduisant $K(x,y) = \phi(x) \cdot \phi(y)$, $K :\xi \time \xi \
 	%\end{center}
 \end{figure}
 
+L'estimateur devient ainsi en effectuant le produit scalaire sur les données $(x_{i})_{1 \leqslant i \leqslant N}$:
+\[
+f(\overset{\sim}{x}) = \sum_{i = 1}^{n}{\alpha_i \text{k}(x_i , \overset{\sim}{x})}
+\]
+
+
+%%%%%%%%%%%%%%%%%%% section 2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Ridge Regression}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%$
+
+Le problème linéaire classique $Y = \sum{w_i \cdot x_i}$ est optimisé par minimisation de l'erreur :
+\[
+\underset{W \in \mathbb{R}^{n}}{\text{arg min}}\sum{(f(x_i) - y_i)^{2}}
+\]
+La regression ridge consiste à ajouter un poid à cette erreur avec un paramètre $\lambda\geqslant 0 $ :
+\[
+\underset{W \in \mathbb{R}^{n}}{\text{arg min}}\sum{(f(x_i) - y_i)^{2}} +  \lambda \sum{w_{i}^{2}}
+\]
+En reprenant l'astuce du noyaux précedente ce problème de minimisation peut se réécrire :
+\[
+	\underset{\alpha \in \mathbb{R}^{n}}{\text{arg min}}<K \alpha - y , K 	\alpha -y > + \lambda \alpha^{T} K \alpha 
+\]
+\[
+	\text{où } K \in \mathbb{R}^{n \times n} \text{ est la matrice des 			noyaux} \quad K_{i,j} = \text{k}(x_i, x_j)
+\]
+ce qui revient en prenant le gradient à :
+\[
+\alpha	=(K + \lambda I)^{-1}y 
+\]
+\[
+\text{avec $I$ la matrice identité}
+\]
+
+%%%%%%%%%%%%%%%%%%%%% chapitr 2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Experimentations}
 
-test synchro overleaf
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% SECTION 1 %%%%%%%%%%%%%%%%%%%%%%%
+\section{Base d'entrainement du modèle}
+
+Nos données sont initialement contenues dans un fichier .xyz.
+Chaque élément du fichier est un tableau avec en première ligne le nombre d'atome de la molécule, en deuxième ligne l'énergie d'atomisation et le numéro de la molécule dans le fichier, et pour chaque ligne ensuite correspondantes à chaque atomes les coordonnées cartésienne de l'atome.\\
+\\
+\begin{tabular}{ l c c c }
+   Nombre d'atome &  & & \quad\\
+   numéro de la molécule &\quad énergie d'atomisation &\quad &\\
+   atome 1 & x(1) & y(1) & \quad z(1) \\
+   atome 2 & x(2) & y(2) & \quad z(2) \\
+   . & . & . & \quad . \\
+   . & . & . & \quad . \\
+   . & . & . & \quad . \\
+   atome n & x(n) & y(n) &\quad  z(n) \\
+ \end{tabular}
+ \\
+ \\
+ \\
+ Par exemple pour la première  molécule du fichier que l'on traite :
+\begin{figure}[!h]
+\begin{tabular}{ l c c c c c c}
+   5 &  & & \quad\\
+   0001 &\quad -417.031 & & & & & \\
+   C & 1.04168000 & -0.05620000 & -0.07148000 & 1.04168200 & -0.05620000 & -0.07148100\\
+   H  & 2.15109000 & -0.05620000 & -0.07150000 & 2.13089400 & -0.05620200 & -0.07149600\\
+   H  & 0.67187000 & 0.17923000 & -1.09059000  &  0.67859800 &  0.17494100 & -1.07204400\\
+   H & 0.67188000 & 0.70866000 & 0.64196000 & 0.67861300 &  0.69474600  & 0.62898000\\
+   H & 0.67188000 & -1.05649000 & 0.23421000 & 0.67861400 & -1.03828500  &0.22864100\\
+ \end{tabular}
+ \caption{Premier élément du fichier .xyz correspondant à la première molécule. Le bloc de coordonnées à gauche correspond aux coordonnées du champ de force et le bloc de droite correspond aux coordonnées DFT.}
+ \end{figure}
+ 
+ \newpage
+Nous allons ensuite mettre en forme ces données pour entrainer le modèle. On utilise ainsi les matrices de Coulomb pour représenter les molécules.
+Les matrices de Coulomb sont représentés comme suit : 
+\[
+M_{ij} = 
+	\left\{
+	\begin{array}{ccc}		
+	\begin{aligned}
+		& 0.5 Z_{i}^{2.4} \quad &i=j\\
+		& \frac{Z_i Z_j}{||R_i - R_j||_{2}} \quad &i\neq j
+	\end{aligned}
+\end{array}
+	\right.
+\]
+avec $Z_i$ le numéro atomique correspondant et $R_i$ la position des atomes.\\
+Cependant pour chaque molécules les coordonnées des atomes sont déterminé par rapport à un atome de référence ce qui fait que ces matrices ne sont pas insensible à l'inversion de ligne pour l'entrainement du modèle. Pour ce la après le calcul des matrices nous trions les ligne par norme descendante.\\
+De plus les matrices de Coulomb étant symétrique nous ne pouvons garder que la partie inférieure de la matrice dans un vecteur colonne de taille égale au plus grand vecteur possible sur nos données.
+
+%%%%%%%%%%%%%%%%%% section 2%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{entraînement du modèle}
+
+Nous allons dans un premier temps travailler avec un noyaux gaussien définis par :
+\[ 
+	\text{k}(x,z) = \exp{- \frac{||x-z||_{2}^2}{2\sigma^2}} \, \quad \sigma \geqslant 0 
+\]
+\\
+Nous avons donc trois paramètres dans notre modèle d'après le chapitre\ref{C1} à la page \pageref{C1}
+\begin{enumerate}
+    \item $\sigma$ du noyaux gaussien
+    \item $\lambda$ de la ridge régression
+\end{enumerate}
+
+Le vecteur $\alpha$ dans l'estimateur  $f(\overset{\sim}{x}) = \sum_{i = 1}^{n}{\alpha_i \text{k}(x_i , \overset{\sim}{x})}$ est directement déterminé
+par $\alpha	=(K + \lambda I)^{-1}y$
+
+nous allons ainsi rechercher directement le meilleur couple $(\lambda, \sigma)$ sur un ensemble $\Omega$ en mimisant l'erreur en utilisant la cross-validation. 
 \end{document}

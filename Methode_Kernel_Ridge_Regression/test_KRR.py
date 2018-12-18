@@ -65,17 +65,17 @@ plt.show()
 
 # gamma trop petit : sous-apprentissage car inversement proportionnel a la variance gaussienne
 # si C augmente plus de vecteur support
-plt.figure()
-alpha_scope = np.arange(0.01,0.5,0.1)
-gamma_scope = np.arange(0,0.05,0.0001)
-for alpha in alpha_scope:
-    SCORE = []
-    for gamma in gamma_scope:
+#plt.figure()
+#alpha_scope = np.arange(0.01,0.5,0.1)
+#gamma_scope = np.arange(0,0.05,0.0001)
+#for alpha in alpha_scope:
+    #SCORE = []
+    #for gamma in gamma_scope:
         
-        kr_estim = KernelRidge(kernel='rbf', alpha = alpha, gamma = gamma)
-        kr_estim.fit(X_train,y_train)
-        SCORE.append(kr_estim.score(X_test, y_test))
-    plt.plot(gamma_scope,SCORE, label='alpha =%.3f'%alpha)
-plt.title("optimisation")
-plt.legend()
-plt.show()
+        #kr_estim = KernelRidge(kernel='rbf', alpha = alpha, gamma = gamma)
+        #kr_estim.fit(X_train,y_train)
+        #SCORE.append(kr_estim.score(X_test, y_test))
+    #plt.plot(gamma_scope,SCORE, label='alpha =%.3f'%alpha)
+#plt.title("optimisation")
+#plt.legend()
+#plt.show()

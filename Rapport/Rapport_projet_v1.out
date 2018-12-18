@@ -1,2 +1,6 @@
-\BOOKMARK [0][-]{chapter.1}{Support Vector Machines methods \(SVM\)}{}% 1
-\BOOKMARK [0][-]{chapter.2}{Experimentations}{}% 2
+\BOOKMARK [0][-]{chapter.1}{Th\351orie}{}% 1
+\BOOKMARK [1][-]{section.1.1}{Support Vector Machines methods \(SVM}{chapter.1}% 2
+\BOOKMARK [1][-]{section.1.2}{Ridge Regression}{chapter.1}% 3
+\BOOKMARK [0][-]{chapter.2}{Experimentations}{}% 4
+\BOOKMARK [1][-]{section.2.1}{Base d'entrainement du mod\350le}{chapter.2}% 5
+\BOOKMARK [1][-]{section.2.2}{entra\356nement du mod\350le}{chapter.2}% 6
