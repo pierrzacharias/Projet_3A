@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 #<<<<<<<<<<<<<<<<< écriture des matrices de Coulombs >>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 ################################################################################
@@ -58,7 +59,7 @@ while roam < len(contenu_fichier_xyz):
         current_atom_xyz =  current_atom_xyz.split()
         list_atomic_number.append( AbbrIndex[ current_atom_xyz[0]] ) # utilisation dictionnaire pour trouver le numero atmique
         
-        list_positions.append([float(current_atom_xyz[4]), float(current_atom_xyz[5]), float(current_atom_xyz[6])] )# calcul du R 
+        list_positions.append([float(current_atom_xyz[1]), float(current_atom_xyz[2]), float(current_atom_xyz[3])] )# calcul du R 
         if current_atom_xyz[0] != 'H': number_of_non_H_atoms += 1
     #########################################################
     # calcul Coulomb Matrix 
@@ -70,7 +71,7 @@ while roam < len(contenu_fichier_xyz):
                 if i == j:
                     Coulomb_matrix_c[i][j] = 0.5 * list_atomic_number[i] ** 2.4
                 else :
-                    Coulomb_matrix_c[i][j] = list_atomic_number[i] * list_atomic_number[j] / ( ((list_positions[i][0] - list_positions[j][0])**2 + (list_positions[i][1] - list_positions[j][1])**2 + (list_positions[i][2] - list_positions[j][2])**2)  ** (1/2) )
+                    Coulomb_matrix_c[i][j] = float(list_atomic_number[i]) * float(list_atomic_number[j]) / ( ((list_positions[i][0] - list_positions[j][0])**2 + (list_positions[i][1] - list_positions[j][1])**2 + (list_positions[i][2] - list_positions[j][2])**2)  ** 0.5 )
     
     # print(Coulomb_matrix_c[0:number_of_atom][0:number_of_atom])
     
@@ -109,8 +110,8 @@ while roam < len(contenu_fichier_xyz):
     Coulomb_matrix_vector = [0] * 276
     k = 0
     # nous parcourons la matrice de coulomb par ligne croissante
-    for i in range(number_of_atom): 
-        for j in range(i + 1):
+    for i in range(23): 
+        for j in range(i,23):
             Coulomb_matrix_vector[k] = Coulomb_matrix_c[i][j]
             #Coulomb_matrix_vector[:,k] = Coulomb_matrix_c[i][j]
             k += 1
