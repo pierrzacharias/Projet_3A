@@ -13,11 +13,11 @@ from sklearn import metrics
 import matplotlib.pyplot as plt
 import pickle
 from math import sqrt
-from math import log2
+#from math import log2
 from matplotlib import ticker, cm   
 ################################################################################
 plt.close()
-start_time = time.time()
+#start_time = time.time()
 # ######################## lecture des donnees #################################
 #def data():
 matrice_coulomb = open('matrice_coulomb.txt', 'rb')
@@ -32,11 +32,15 @@ H_atoms = np.array([number_of_non_H_atoms_depickler.load()])
     
 continuer = True
 i = 0
+
+Y_dataset_list = []
+H_atoms_list = []
+
 while continuer == True:
     try:
         X_dataset = np.insert(X_dataset,i,matrice_coulomb_depickler.load(), axis=0)
-        Y_dataset = np.append(Y_dataset,energie_atomisation_depickler.load())
-        H_atoms = np.append(H_atoms,number_of_non_H_atoms_depickler.load())
+        Y_dataset_list.append(Y_dataset,energie_atomisation_depickler.load())
+        H_atoms_list.append(H_atoms,number_of_non_H_atoms_depickler.load())
         i += 1
     except:
         continuer = False    
@@ -46,6 +50,8 @@ energie_atomisation.close()
 
 # ##################### selection trainnig set et Hold-out set #################
 
+Y_dataset = np.asarray(Y_dataset_list)
+H_atoms = np.asarray(H_atoms_list)
 
 # plt.hist(H_atoms)
 
@@ -200,5 +206,5 @@ kr_final.fit(np.concatenate((X_hold_out_set,X_training_set)),
 Y_kr_pred_final = kr_final.predict(X_validation)
 print('score final RMSE =',RMSE(Y_validation,Y_kr_pred_final))
 
-print('temps execution = ',time.time() - start_time)
+#print('temps execution = ',time.time() - start_time)
     
