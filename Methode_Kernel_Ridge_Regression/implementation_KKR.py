@@ -3,6 +3,7 @@
 ################################################################################
 # os.chdir("C:/Users/pierr/Documents/3A/projet/Projet_3A/Methode_Kernel_Ridge_Regression")
 ################################################################################
+# roccad@gmail.com
 import numpy as np
 from sklearn import datasets,model_selection
 from sklearn.svm import SVR
@@ -14,64 +15,63 @@ import matplotlib.pyplot as plt
 import pickle
 from math import sqrt
 from math import log2
-from matplotlib import ticker, cm   
+from matplotlib import ticker, cm 
+import time
+
 ################################################################################
 plt.close()
 start_time = time.time()
+
 # ######################## lecture des donnees #################################
-#def data():
+
 matrice_coulomb = open('matrice_coulomb.txt', 'rb')
 matrice_coulomb_depickler = pickle.Unpickler(matrice_coulomb)
 energie_atomisation = open('energie_atomisation.txt','rb')
 energie_atomisation_depickler = pickle.Unpickler(energie_atomisation)
 number_of_non_H_atoms = open('number_of_non_H_atoms.txt', 'rb')
 number_of_non_H_atoms_depickler = pickle.Unpickler(number_of_non_H_atoms)
-#def data():
-X_dataset, Y_dataset= np.array([matrice_coulomb_depickler.load()]), np.array([energie_atomisation_depickler.load()])
-H_atoms = np.array([number_of_non_H_atoms_depickler.load()])
-    
+
+X_dataset, Y_dataset= [matrice_coulomb_depickler.load()], [energie_atomisation_depickler.load()]
+H_atoms = [number_of_non_H_atoms_depickler.load()]
+
 continuer = True
-i = 0
 while continuer == True:
     try:
-        X_dataset = np.insert(X_dataset,i,matrice_coulomb_depickler.load(), axis=0)
-        Y_dataset = np.append(Y_dataset,energie_atomisation_depickler.load())
-        H_atoms = np.append(H_atoms,number_of_non_H_atoms_depickler.load())
-        i += 1
+        X_dataset.append(matrice_coulomb_depickler.load())
+        Y_dataset.append(energie_atomisation_depickler.load())
+        H_atoms.append(number_of_non_H_atoms_depickler.load())
     except:
         continuer = False    
-# print(X_dataset[:10])
+
 matrice_coulomb.close()
 energie_atomisation.close()
-
+number_of_non_H_atoms.close()
+X_dataset = np.asarray(X_dataset)
+Y_dataset = np.asarray(Y_dataset)
+H_atoms = np.asarray(H_atoms)
 # ##################### selection trainnig set et Hold-out set #################
 
-
 # plt.hist(H_atoms)
-
 # on trie les liste si > ou < a 4 non-H-atoms par molecule
-# ce la permet de mettre toutes le molecule <5 non-H atmos dentrainer le modele
-# car il y en a peu comparee aux autres molecules
+# toute les molecule <4 non H-atoms sont dans le trainning set
 inds = H_atoms.argsort()
 X_under_4_H = [X_dataset[i] for i in inds if H_atoms[i] < 5]
 Y_under_4_H = [Y_dataset[i] for i in inds if H_atoms[i] < 5]
 X_above_4_H = [X_dataset[i] for i in inds if H_atoms[i] > 4]
 Y_above_4_H = [Y_dataset[i] for i in inds if H_atoms[i] > 4]
 
-# on coupe de maniere aleatoire entre une basse de train et une base de test
+# on coupe de maniere aleatoire entre une basse de train (taille 1000) et une base de test
 X_train, X_validation, Y_train,Y_validation = model_selection.train_test_split(
-X_above_4_H, Y_above_4_H, train_size= 1000- len(X_under_4_H), random_state=200) 
+    X_above_4_H, Y_above_4_H, train_size= len(X_dataset) - 1000 + len(X_under_4_H)) 
 
+# on coupe le base de train en une base de train (900) pour les hyperparametre et une base test (taille 100) pour valider le choix des hyperparametres
+X_training_set, X_hold_out_set, Y_training_set,Y_hold_out_set = model_selection.train_test_split(X_train,Y_train,train_size = len(X_train) - 100)  
 
-# on coupe le base de t rain en une base de train generale et un set de test pour choisir
-# les hyperparametres
-X_training_set, X_hold_out_set, Y_training_set,Y_hold_out_set = model_selection.train_test_split(
-X_train,Y_train,test_size= 100,train_size = 900 - len(X_under_4_H),random_state=100)  
-
-# on ajoute les molecule <5-non-H-atoms dans la base de train 
+# on ajoute les molecule <5-non-H-atoms dans la base de train pour avoir taille = 900 
 X_training_set = np.concatenate((X_under_4_H,X_training_set),axis=0)
-Y_training_set = np.concatenate((Y_under_4_H,Y_training_set))   
+Y_training_set = np.concatenate((Y_under_4_H,Y_training_set),axis =0)   
 
+print('temps construction dataset= ',time.time() - start_time)
 
 ################################################################################
 # ###################### entrainement du modele ################################
@@ -79,15 +79,13 @@ Y_training_set = np.concatenate((Y_under_4_H,Y_training_set))
 
 # #################### choix des hyperparametres ###############################
 # on entraine sur trainning_set et on predit sur hold_out_set
-
 # recherche du parametre optimal 
 # alpha = (2*C)^-1, C = 1/2*alpha
 # dans article sigma de 5 a 18 --> gamma = 1/sigma**2 gamma in [.003,0.04]
 # lambda de -40 a -5
-
 # gamma = 1/sigma**2 
-param_grid={"alpha": [np.linspace(-30, -5, 20)]}
 
+param_grid={"alpha": [np.linspace(-30, -5, 20)]}
 def RMSE(y_true, y_pred): return sqrt(metrics.mean_squared_error(y_true, y_pred))
 def R2(y_true, y_pred): return 1 - (metrics.r2_score(y_true, y_pred))
 def MAE(y_true, y_pred): return metrics.mean_absolute_error(y_true, y_pred)
@@ -95,12 +93,12 @@ scoring_dict = {'RMSE' : metrics.make_scorer(RMSE),
                 'MAE' : 'neg_mean_absolute_error',
                 'R2': 'r2'}
 
+
 #scoring = 'neg_mean_squared_error' # MSE ** 2
 #scoring = 'r2' # R ** 2
 #scoring ='neg_mean_absolute_error' # MAE
 #"gamma": np.linspace(.001,0.1, 20)})
 # https://scikit-learn.org/stable/modules/grid_search.html#exhaustive-grid-search
-
 #kr_opti = GridSearchCV(KernelRidge(kernel='rbf', gamma=0.5), cv=5,
                        #param_grid={"alpha": [np.linspace(1, 5, 10)]}, 
                        #scoring = scoring,
@@ -108,52 +106,42 @@ scoring_dict = {'RMSE' : metrics.make_scorer(RMSE),
                        #refit = 'MSE',
                        #verbose = True,
                        #return_train_score=True)
-                                
 #kr_opti.fit(X_hold_out_set,Y_hold_out_set)
 #print("score KRR OTIMISEE %.3f" % kr_opti.score(X_hold_out_set,Y_hold_out_set) )
 #results = kr_opti.cv_results_
 #print("results", results)
 
-alpha_grid_log2 = np.linspace(-30,-5, 50)
-
-alpha_grid_log2 = np.arange(-30,-5, 0.5)
-alpha_grid = [2**i for i in  alpha_grid_log2]
-
-#alpha_grid = np.linspace(1e-15,1e-4,50)
-#alpha_grid_log2 = [log2(i) for i in  alpha_grid]
-
-
-gamma_grid_log2 = np.linspace(-30,-10,10)
-gamma_grid_log2 = np.arange(-30,-5,0.5)
+alpha_grid_log2 = range(-30,-5, 5)
+alpha_grid = [2**i for i in alpha_grid_log2]
+gamma_grid_log2 = range(5,18,1)
 gamma_grid = [2**i for i in gamma_grid_log2]
 
-#gamma_grid = np.linspace(1e-25,1e-1,5)
-#gamma_grid_log2 = [log2(i) for i in  gamma_grid]
-#gamma_grid = np.linspace(1e-6,1e-0.00024, 2)
+
 # stockage des score pour les differentes mesure
 RMSE_SCORE = []
 MAE_SCORE = []
 R2_SCORE = []
 
-min_RMSE = 1e6 
+print('start')
+min_RMSE = 1e6
 for alpha in alpha_grid: 
     for gamma in gamma_grid:
         #gamma = 1e-4
-        kr = KernelRidge(kernel='rbf', gamma = gamma, alpha = alpha)
-        kr.fit(X_training_set,Y_training_set)         
-        Y_kr_pred = kr.predict(X_hold_out_set)
-        RMSE_SCORE.append(RMSE(Y_hold_out_set,Y_kr_pred))
-        
+        Y_kr_pred = KernelRidge(kernel='rbf', gamma = gamma, alpha = alpha).fit(X_training_set,Y_training_set).predict(X_training_set)     
+        RMSE_SCORE.append(RMSE(Y_training_set,Y_kr_pred))
         if RMSE_SCORE[-1] < min_RMSE: 
             alpha_min, gamma_min = alpha, gamma
             min_RMSE = RMSE_SCORE[-1]
         #print((alpha,gamma),'score RMSE =',RMSE(Y_hold_out_set,Y_kr_pred))
-        
         #MAE_SCORE.append(MAE(Y_hold_out_set,Y_kr_pred))
         #R2_SCORE.append(R2(Y_hold_out_set,Y_kr_pred))
 
+print('alpha min, gamma min=',alpha_min,gamma_min,'minimum RMSE sur training',min(RMSE))
 
-#print('alpha=',alpha , min(RMSE_SCORE))
+# calcul erreur sur set taille 100 pour validation
+Y_kr_pred = KernelRidge(kernel='rbf', gamma = gamma_min, alpha = alpha_min).fit(X_training_set,Y_training_set).predict(X_training_set)     
+print('erreur sur set validation',RMSE(Y_training_set,Y_kr_pred))
+
 def plot_alpha():    
     fig, ax = plt.subplots()
     ax.plot(alpha_grid,RMSE_SCORE,label = 'RMSE',color = 'r',marker='o')
@@ -164,12 +152,8 @@ def plot_alpha():
     plt.show()
     return None
 
-
-
-
 # remplissage sur la grille a partir des scores calcules
-
-
+start_time = time.time()
 X_mesh, Y_mesh = np.meshgrid(gamma_grid_log2, alpha_grid_log2)    
 Z_mesh_RMSE = np.zeros(X_mesh.shape)
 k = 0
@@ -177,28 +161,27 @@ for i in range(Z_mesh_RMSE.shape[0]):
     for j in range(Z_mesh_RMSE.shape[1]):
         Z_mesh_RMSE[i][j] = RMSE_SCORE[k]
         k += 1 
-fig, ax = plt.subplots()  
+print('temps remplissage grille = ',time.time() - start_time)
+
+# fig, ax = plt.subplots()  
+
 #ax.set_ylim(log2(min(alpha_grid))-200,log2(max(alpha_grid))+200)
 #ax.set_xlim(log2(min(gamma_grid))-200,log2(max(gamma_grid))+200)
-CS = ax.contour(X_mesh, Y_mesh, Z_mesh_RMSE,1000)
-
-                
-cp = ax.contour(X_mesh, Y_mesh, Z_mesh_RMSE,colors='black', linestyles='dashed')
-ax.clabel(cp, inline=True, fontsize=10)    
-#x.set_title('Simplest default with labels')
-ax.set_xlabel(r'$\sigma$')
-ax.set_ylabel(r'$\alpha$')
-fig.colorbar(CS)
-plt.show()   
-
+#CS = ax.contour(X_mesh, Y_mesh, Z_mesh_RMSE,1000)
+#cp = ax.contour(X_mesh, Y_mesh, Z_mesh_RMSE,colors='black', linestyles='dashed')
+#ax.clabel(cp, inline=True, fontsize=10)    
+##x.set_title('Simplest default with labels')
+#ax.set_xlabel(r'$\sigma$')
+#ax.set_ylabel(r'$\alpha$')
+#fig.colorbar(cp)
+#plt.show()   
 
 # ######################## performance modele ##################################
 
-kr_final = KernelRidge(kernel='rbf', gamma = gamma_min, alpha = alpha_min)
-kr_final.fit(np.concatenate((X_hold_out_set,X_training_set)),
-             np.concatenate((Y_hold_out_set,Y_training_set)))     
-Y_kr_pred_final = kr_final.predict(X_validation)
-print('score final RMSE =',RMSE(Y_validation,Y_kr_pred_final))
+#kr_final = KernelRidge(kernel='rbf', gamma = gamma_min, alpha = alpha_min)
+#kr_final.fit(np.concatenate((X_hold_out_set,X_training_set)),
 
-print('temps execution = ',time.time() - start_time)
-    
+             #np.concatenate((Y_hold_out_set,Y_training_set)))     
+#Y_kr_pred_final = kr_final.predict(X_validation)
+#print('score final RMSE =',RMSE(Y_validation,Y_kr_pred_final))
+#print('temps execution = ',time.time() - start_time)

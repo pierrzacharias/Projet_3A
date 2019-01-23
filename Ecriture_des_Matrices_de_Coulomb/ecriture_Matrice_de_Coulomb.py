@@ -70,8 +70,8 @@ while roam < len(contenu_fichier_xyz):
                 if i == j:
                     Coulomb_matrix_c[i][j] = 0.5 * list_atomic_number[i] ** 2.4
                 else :
-                    Coulomb_matrix_c[i][j] = list_atomic_number[i] * list_atomic_number[j] / ( ((list_positions[i][0] - list_positions[j][0])**2 + (list_positions[i][1] - list_positions[j][1])**2 + (list_positions[i][2] - list_positions[j][2])**2)  ** (1/2) )
-    
+                    Coulomb_matrix_c[i][j] = float(list_atomic_number[i]) * float(list_atomic_number[j]) / ( ((list_positions[i][0] - list_positions[j][0])**2 + (list_positions[i][1] - list_positions[j][1])**2 + (list_positions[i][2] - list_positions[j][2])**2)  ** (0.5) )
+                    
     # print(Coulomb_matrix_c[0:number_of_atom][0:number_of_atom])
     
     #########################################################
@@ -108,18 +108,15 @@ while roam < len(contenu_fichier_xyz):
     ###################################################################
     Coulomb_matrix_vector = [0] * 276
     k = 0
-    # nous parcourons la matrice de coulomb par ligne croissante
-    for i in range(number_of_atom): 
-        for j in range(i + 1):
+    # on remplit la matruce de Coulomb de taille maximale et on garde les zeros dans le vecteurs prenant la partie inférieure de la matrice 
+    # pour conserver les mêmes informations sur les atomes qui ont la mêm configuration entre les molécules 
+    for i in range(23): 
+        for j in range(i,23):   
             Coulomb_matrix_vector[k] = Coulomb_matrix_c[i][j]
-            #Coulomb_matrix_vector[:,k] = Coulomb_matrix_c[i][j]
-            k += 1
-    #                                          print(Coulomb_matrix_vector)
-    
+            k += 1   
     ###################################################################
     # ecriture de la matrice de coulomb pour la molécule dans le fichier matrice_coulomb 
     ###################################################################
-    
     matrice_coulomb_pickler.dump(Coulomb_matrix_vector)
     energie_atomisation_pickler.dump(energie_atomisation_c)
     number_of_non_H_pickler.dump(number_of_non_H_atoms)
