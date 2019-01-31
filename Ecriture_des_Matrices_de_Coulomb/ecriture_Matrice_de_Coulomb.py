@@ -70,8 +70,7 @@ while roam < len(contenu_fichier_xyz):
                 if i == j:
                     Coulomb_matrix_c[i][j] = 0.5 * list_atomic_number[i] ** 2.4
                 else :
-                    Coulomb_matrix_c[i][j] = float(list_atomic_number[i]) * float(list_atomic_number[j]) / ( ((list_positions[i][0] - list_positions[j][0])**2 + (list_positions[i][1] - list_positions[j][1])**2 + (list_positions[i][2] - list_positions[j][2])**2)  ** (0.5) )
-                    
+                    Coulomb_matrix_c[i][j] = float(list_atomic_number[i]) * float(list_atomic_number[j]) / ( ((list_positions[i][0] - list_positions[j][0])**2 + (list_positions[i][1] - list_positions[j][1])**2 + (list_positions[i][2] - list_positions[j][2])**2)  ** (0.5) )      
     # print(Coulomb_matrix_c[0:number_of_atom][0:number_of_atom])
     
     #########################################################

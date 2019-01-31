@@ -1,13 +1,11 @@
 ################################################################################
-# Same script as implementation_KKR
-# but we use multiprocessing to compute faster 
+# <<Dans ce sript nous entrainons le modele Kernel Ridge sur le jeu de donnee>>>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
 ################################################################################
 # os.chdir("C:/Users/pierr/Documents/3A/projet/Projet_3A/Methode_Kernel_Ridge_Regression")
 ################################################################################
 # roccad@gmail.com
 import numpy as np
-from scipy import sparse as sp
-from sklearn import model_selection
+from sklearn import datasets,model_selection
 from sklearn.svm import SVR
 from sklearn.model_selection import GridSearchCV
 from sklearn.model_selection import learning_curve
@@ -20,6 +18,8 @@ from math import log2
 from matplotlib import ticker, cm 
 import time
 
+from joblib import Parallel, delayed
+import multiprocessing
 ################################################################################
 plt.close()
 start_time = time.time()
@@ -95,55 +95,43 @@ scoring_dict = {'RMSE' : metrics.make_scorer(RMSE),
                 'MAE' : 'neg_mean_absolute_error',
                 'R2': 'r2'}
 
-
-#scoring = 'neg_mean_squared_error' # MSE ** 2
-#scoring = 'r2' # R ** 2
-#scoring ='neg_mean_absolute_error' # MAE
-#"gamma": np.linspace(.001,0.1, 20)})
-# https://scikit-learn.org/stable/modules/grid_search.html#exhaustive-grid-search
-#kr_opti = GridSearchCV(KernelRidge(kernel='rbf', gamma=0.5), cv=5,
-                       #param_grid={"alpha": [np.linspace(1, 5, 10)]}, 
-                       #scoring = scoring,
-                       #scoring = scoring_dict,
-                       #refit = 'MSE',
-                       #verbose = True,
-                       #return_train_score=True)
-#kr_opti.fit(X_hold_out_set,Y_hold_out_set)
-#print("score KRR OTIMISEE %.3f" % kr_opti.score(X_hold_out_set,Y_hold_out_set) )
-#results = kr_opti.cv_results_
-#print("results", results)
-
-# les valeur optimale dans l'article sont notre_gamma = 1/(2* gamma_article **2)
-# gamma optimal article 724 recher dans [5,18]
-# notre_gamma optimal serait -20 a chercher dans [-11,-40]
+# les valeur optimale dans l'article sont notre_sigma = 1/(2* sigma_article **2)
+# sigma optimal article 724 recher dans [5,18]
+# notre_sigma optimal serait -20 a chercher dans [-11,-40]
 
 # lambda optimal dans l'article est a cherche dans  1026:5 -40, -5
-alpha_grid_log2 = np.arange(-50,0,0.5)
+alpha_grid_log2 = range(-500,100,50)
 alpha_grid = [2**alpha_grid_log2[i] for i in range(len(alpha_grid_log2))]
-gamma_grid_log2 = np.arange(-40,0,0.5)
-#gamma_grid_log2 = [-15]
+#gamma_grid_log2 = range(-30,-5,2)
+gamma_grid_log2 = [-15]
 gamma_grid = [2**gamma_grid_log2[i] for i in range(len(gamma_grid_log2))]
+List_hyperparametre = []
+for i in alpha_grid:
+    for j in gamma_grid:
+        List_hyperparametre.append((i,j))
 
 
 # stockage des score pour les differentes mesure
 RMSE_SCORE = []
 MAE_SCORE = []
 R2_SCORE = []
-start_time = time.time()
-min_RMSE = 1e6
-for alpha in alpha_grid: 
-    for gamma in gamma_grid:
-        #gamma = 1e-4
-        Y_kr_pred = KernelRidge(kernel='rbf', gamma = gamma, alpha = alpha).fit(X_training_set,Y_training_set).predict(X_training_set)     
-        RMSE_SCORE.append(RMSE(Y_training_set,Y_kr_pred))
-        if RMSE_SCORE[-1] < min_RMSE: 
-            alpha_min, gamma_min = alpha, gamma
-            min_RMSE = RMSE_SCORE[-1]
-        #print((alpha,gamma),'score RMSE =',RMSE(Y_hold_out_set,Y_kr_pred))
-        #MAE_SCORE.append(MAE(Y_hold_out_set,Y_kr_pred))
-        #R2_SCORE.append(R2(Y_hold_out_set,Y_kr_pred))
 
-print('alpha min, gamma min=',alpha_min,gamma_min,'minimum RMSE sur training',min(RMSE_SCORE))
+
+def processInput(x):
+    alpha = x[0]
+    gamma = x[1]
+    Y_kr_pred = KernelRidge(kernel='rbf', gamma = gamma, alpha = alpha).fit(X_training_set,Y_training_set).predict(X_training_set)     
+    #print((alpha,gamma),'score RMSE =',RMSE(Y_hold_out_set,Y_kr_pred))
+    #MAE_SCORE.append(MAE(Y_hold_out_set,Y_kr_pred))
+    #R2_SCORE.append(R2(Y_hold_out_set,Y_kr_pred))
+    return RMSE(Y_training_set,Y_kr_pred)
+
+num_cores = multiprocessing.cpu_count()
+
+RMSE_SCORE = Parallel(n_jobs=num_cores)(delayed(processInput)(i) for i in List_hyperparametre)
+
+
+
 print('temps de calcul sur la grille = ',time.time() - start_time)
 # calcul erreur sur set taille 100 pour validation
 Y_kr_pred = KernelRidge(kernel='rbf', gamma = gamma_min, alpha = alpha_min).fit(X_training_set,Y_training_set).predict(X_training_set)     

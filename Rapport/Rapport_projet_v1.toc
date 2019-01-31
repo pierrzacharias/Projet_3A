@@ -4,4 +4,7 @@
 \contentsline {section}{\numberline {1.2}Ridge Regression}{5}{section.1.2}
 \contentsline {chapter}{\numberline {2}Experimentations}{6}{chapter.2}
 \contentsline {section}{\numberline {2.1}Base d'entrainement du mod\IeC {\`e}le}{6}{section.2.1}
+\contentsline {paragraph}{}{7}{section*.7}
 \contentsline {section}{\numberline {2.2}entra\IeC {\^\i }nement du mod\IeC {\`e}le}{7}{section.2.2}
+\contentsline {paragraph}{}{8}{section*.8}
+\contentsline {paragraph}{}{8}{section*.9}

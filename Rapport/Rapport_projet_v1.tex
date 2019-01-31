@@ -229,7 +229,8 @@ M_{ij} =
 	\right.
 \]
 avec $Z_i$ le numéro atomique correspondant et $R_i$ la position des atomes.\\
-Cependant pour chaque molécules les coordonnées des atomes sont déterminé par rapport à un atome de référence ce qui fait que ces matrices ne sont pas insensible à l'inversion de ligne pour l'entrainement du modèle. Pour ce la après le calcul des matrices nous trions les ligne par norme descendante.\\
+\paragraph{}
+Cependant pour chaque molécules les coordonnées des atomes sont déterminé par rapport à un atome de référence ce qui fait que ces matrices ne sont pas insensible à l'inversion de ligne pour l'entrainement du modèle. Pour cela après le calcul des matrices nous trions les ligne par norme descendante.\\
 De plus les matrices de Coulomb étant symétrique nous ne pouvons garder que la partie inférieure de la matrice dans un vecteur colonne de taille égale au plus grand vecteur possible sur nos données.
 
 %%%%%%%%%%%%%%%%%% section 2%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -240,7 +241,7 @@ Nous allons dans un premier temps travailler avec un noyaux gaussien définis pa
 	\text{k}(x,z) = \exp{- \frac{||x-z||_{2}^2}{2\sigma^2}} \, \quad \sigma \geqslant 0 
 \]
 \\
-Nous avons donc trois paramètres dans notre modèle d'après le chapitre\ref{C1} à la page \pageref{C1}
+Nous avons donc deux hyperparamètres dans notre modèle d'après le chapitre\ref{C1} à la page \pageref{C1}
 \begin{enumerate}
     \item $\sigma$ du noyaux gaussien
     \item $\lambda$ de la ridge régression
@@ -250,4 +251,22 @@ Le vecteur $\alpha$ dans l'estimateur  $f(\overset{\sim}{x}) = \sum_{i = 1}^{n}{
 par $\alpha	=(K + \lambda I)^{-1}y$
 
 nous allons ainsi rechercher directement le meilleur couple $(\lambda, \sigma)$ sur un ensemble $\Omega$ en mimisant l'erreur en utilisant la cross-validation. 
+
+\paragraph{}
+Nous allons dégager une base de test de notre dataset (de taille 7000 molécules) une base de taille 1000 sur laquelle nous allons rechercher nos hypermaramètre.\\
+Nous décomposons encore cette base de taille 1000 en une base de taille 900 pour le choix des hyperparamètres et une base de taille 100 sur laquelle nous allons verifier la pertinence du choix de nos hyperparamètres, pour se prémunir contre des problème d'overfitting.
+
+\paragraph{} 
+De plus si nous nous intéressons à la répartition du nombre d'atome qui ne sont pas des atomes d'hydrogène dans notre dataset, nous pouvons voir sur la Figure 2.2 que cette répartition est trés inégale. En pratique nous prendrons toutes les molécules qui comprenent moins de 5 non-H atomes car leur nombre est trés réduit (59).
+\begin{figure}[!h]
+\begin{center}
+		\includegraphics[height = 6cm, keepaspectratio]{graphes/non_H_atom.png}
+		\caption{Histogramme du nombre d'atome non-H par molécule}
+		\end{center}
+\end{figure}
+
+
+
+
+
 \end{document}
