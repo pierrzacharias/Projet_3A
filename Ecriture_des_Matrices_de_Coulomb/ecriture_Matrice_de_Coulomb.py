@@ -1,4 +1,4 @@
-#<<<<<<<<<<<<<<<<< écriture des matrices de Coulombs >>>>>>>>>>>>>>>>>>>>>>>>>>>
+#<<<<<<<<<<<<<<<<< ecriture des matrices de Coulombs >>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 ################################################################################
 import numpy as np
@@ -8,9 +8,9 @@ import pickle
 ################################################################################
 
 
-# pour chaque molécule :
-# ligne 1 : énergie d'atomisation
-# autre ligne coordonnées des atomes (pourquoi 2 sets de coordonnée ? pour quoi ne commence pas à zéro ?)
+# pour chaque molecule :
+# ligne 1 : energie d'atomisation
+# autre ligne coordonnees des atomes (pourquoi 2 sets de coordonnée ? pour quoi ne commence pas a zero ?)
 
 
 # tableau periodique

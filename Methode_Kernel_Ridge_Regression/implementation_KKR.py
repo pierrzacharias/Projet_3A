@@ -2,31 +2,34 @@
 # Same script as implementation_KKR
 # but we use multiprocessing to compute faster 
 ################################################################################
-# os.chdir("C:/Users/pierr/Documents/3A/projet/Projet_3A/Methode_Kernel_Ridge_Regression")
+#import os
+#os.chdir("C:/Users/pierre gauthier/Documents/3A/Projet_3A/Methode_Kernel_Ridge_Regression")
 ################################################################################
 # roccad@gmail.com
+ 
 import numpy as np
-from scipy import sparse as sp
-from sklearn import model_selection
-from sklearn.svm import SVR
-from sklearn.model_selection import GridSearchCV
-from sklearn.model_selection import learning_curve
-from sklearn.kernel_ridge import KernelRidge
-from sklearn import metrics 
-import matplotlib.pyplot as plt
-import pickle
-from math import sqrt
-from math import log2
-from matplotlib import ticker, cm 
-import time
+##import multiprocessing
+##from scipy import sparse as sp
+#from sklearn import model_selection
+#from sklearn.svm import SVR
+#from sklearn.model_selection import GridSearchCV
+#from sklearn.model_selection import learning_curve
+#from sklearn.kernel_ridge import KernelRidge
+#from sklearn import metrics 
+#import matplotlib.pyplot as plt
+#import pickle
+#from math import sqrt
+#from math import log2
+#from matplotlib import ticker, cm 
+#import time
 
 ################################################################################
 plt.close()
-start_time = time.time()
+#start_time = time.time()
 
 # ######################## lecture des donnees #################################
-
-matrice_coulomb = open('matrice_coulomb.txt', 'rb')
+²
+matrice_coulomb = open('matrice_coulomb.txt', 'rb')² 
 matrice_coulomb_depickler = pickle.Unpickler(matrice_coulomb)
 energie_atomisation = open('energie_atomisation.txt','rb')
 energie_atomisation_depickler = pickle.Unpickler(energie_atomisation)
@@ -73,7 +76,7 @@ X_training_set, X_hold_out_set, Y_training_set,Y_hold_out_set = model_selection.
 X_training_set = np.concatenate((X_under_4_H,X_training_set),axis=0)
 Y_training_set = np.concatenate((Y_under_4_H,Y_training_set),axis =0)   
 
-print('temps construction dataset= ',time.time() - start_time)
+#print('temps construction dataset= ',time.time() - start_time)
 
 ################################################################################
 # ###################### entrainement du modele ################################
@@ -118,9 +121,9 @@ scoring_dict = {'RMSE' : metrics.make_scorer(RMSE),
 # notre_gamma optimal serait -20 a chercher dans [-11,-40]
 
 # lambda optimal dans l'article est a cherche dans  1026:5 -40, -5
-alpha_grid_log2 = np.arange(-50,0,0.5)
+alpha_grid_log2 = np.arange(-30,0,0.5)
 alpha_grid = [2**alpha_grid_log2[i] for i in range(len(alpha_grid_log2))]
-gamma_grid_log2 = np.arange(-40,0,0.5)
+gamma_grid_log2 = np.arange(-30,0,0.5)
 #gamma_grid_log2 = [-15]
 gamma_grid = [2**gamma_grid_log2[i] for i in range(len(gamma_grid_log2))]
 
@@ -129,7 +132,7 @@ gamma_grid = [2**gamma_grid_log2[i] for i in range(len(gamma_grid_log2))]
 RMSE_SCORE = []
 MAE_SCORE = []
 R2_SCORE = []
-start_time = time.time()
+#start_time = time.time()
 min_RMSE = 1e6
 for alpha in alpha_grid: 
     for gamma in gamma_grid:
@@ -139,12 +142,13 @@ for alpha in alpha_grid:
         if RMSE_SCORE[-1] < min_RMSE: 
             alpha_min, gamma_min = alpha, gamma
             min_RMSE = RMSE_SCORE[-1]
+        print('alpha = ','gamma = ', alpha, gamma)
         #print((alpha,gamma),'score RMSE =',RMSE(Y_hold_out_set,Y_kr_pred))
         #MAE_SCORE.append(MAE(Y_hold_out_set,Y_kr_pred))
         #R2_SCORE.append(R2(Y_hold_out_set,Y_kr_pred))
 
 print('alpha min, gamma min=',alpha_min,gamma_min,'minimum RMSE sur training',min(RMSE_SCORE))
-print('temps de calcul sur la grille = ',time.time() - start_time)
+#print('temps de calcul sur la grille = ',time.time() - start_time)
 # calcul erreur sur set taille 100 pour validation
 Y_kr_pred = KernelRidge(kernel='rbf', gamma = gamma_min, alpha = alpha_min).fit(X_training_set,Y_training_set).predict(X_training_set)     
 print('erreur sur set validation de taille 100',RMSE(Y_training_set,Y_kr_pred))
@@ -160,7 +164,7 @@ def plot_alpha():
     return None
 
 # remplissage sur la grille a partir des scores calcules
-start_time = time.time()
+
 
 X_mesh, Y_mesh = np.meshgrid(gamma_grid_log2, alpha_grid_log2)    
 Z_mesh_RMSE = np.zeros(X_mesh.shape)
@@ -180,7 +184,7 @@ cp = ax.contourf(X_mesh, Y_mesh, Z_mesh_RMSE)
 ax.contour(cp)
 ax.clabel(cp, inline=True, fontsize=10)    
 ax.grid(c='k', ls='-', alpha=0.7)
-ax.set_xlabel(r'$\sigma$')
+ax.set_xlabel(r'$\gamma$')
 ax.set_ylabel(r'$\alpha$')
 fig.colorbar(cp)
 plt.show()   
@@ -193,10 +197,10 @@ fig.colorbar(cs)
 plt.show()
 # ######################## performance modele ##################################
 
-#kr_final = KernelRidge(kernel='rbf', gamma = gamma_min, alpha = alpha_min)
-#kr_final.fit(np.concatenate((X_hold_out_set,X_training_set)),
+kr_final = KernelRidge(kernel='rbf', gamma = gamma_min, alpha = alpha_min)
+kr_final.fit(np.concatenate((X_hold_out_set,X_training_set)),
 
-             #np.concatenate((Y_hold_out_set,Y_training_set)))     
-#Y_kr_pred_final = kr_final.predict(X_validation)
-#print('score final RMSE =',RMSE(Y_validation,Y_kr_pred_final))
+             np.concatenate((Y_hold_out_set,Y_training_set)))     
+Y_kr_pred_final = kr_final.predict(X_validation)
+print('score final RMSE =',RMSE(Y_validation,Y_kr_pred_final))
 #print('temps execution = ',time.time() - start_time)
