@@ -28,8 +28,8 @@ plt.close()
 #start_time = time.time()
 
 # ######################## lecture des donnees #################################
-²
-matrice_coulomb = open('matrice_coulomb.txt', 'rb')² 
+
+matrice_coulomb = open('matrice_coulomb.txt', 'rb')
 matrice_coulomb_depickler = pickle.Unpickler(matrice_coulomb)
 energie_atomisation = open('energie_atomisation.txt','rb')
 energie_atomisation_depickler = pickle.Unpickler(energie_atomisation)
@@ -120,10 +120,10 @@ scoring_dict = {'RMSE' : metrics.make_scorer(RMSE),
 # gamma optimal article 724 recher dans [5,18]
 # notre_gamma optimal serait -20 a chercher dans [-11,-40]
 
-# lambda optimal dans l'article est a cherche dans  1026:5 -40, -5
+# lambda optimal dans l'article est 10**(-6.5), -21 en base 2,a chercher dans :5 -40, -5
 alpha_grid_log2 = np.arange(-30,0,0.5)
 alpha_grid = [2**alpha_grid_log2[i] for i in range(len(alpha_grid_log2))]
-gamma_grid_log2 = np.arange(-30,0,0.5)
+gamma_grid_log2 = np.arange(-30,-10,0.5)
 #gamma_grid_log2 = [-15]
 gamma_grid = [2**gamma_grid_log2[i] for i in range(len(gamma_grid_log2))]
 
@@ -134,18 +134,19 @@ MAE_SCORE = []
 R2_SCORE = []
 #start_time = time.time()
 min_RMSE = 1e6
+i = 0
 for alpha in alpha_grid: 
     for gamma in gamma_grid:
         #gamma = 1e-4
         Y_kr_pred = KernelRidge(kernel='rbf', gamma = gamma, alpha = alpha).fit(X_training_set,Y_training_set).predict(X_training_set)     
         RMSE_SCORE.append(RMSE(Y_training_set,Y_kr_pred))
+        R2_SCORE.append(R2(Y_training_set,Y_kr_pred))
+        MAE_SCORE.append(MAE(Y_training_set,Y_kr_pred))
         if RMSE_SCORE[-1] < min_RMSE: 
             alpha_min, gamma_min = alpha, gamma
             min_RMSE = RMSE_SCORE[-1]
-        print('alpha = ','gamma = ', alpha, gamma)
-        #print((alpha,gamma),'score RMSE =',RMSE(Y_hold_out_set,Y_kr_pred))
-        #MAE_SCORE.append(MAE(Y_hold_out_set,Y_kr_pred))
-        #R2_SCORE.append(R2(Y_hold_out_set,Y_kr_pred))
+        print(i,'iteration sur',2400)
+        i += 1
 
 print('alpha min, gamma min=',alpha_min,gamma_min,'minimum RMSE sur training',min(RMSE_SCORE))
 #print('temps de calcul sur la grille = ',time.time() - start_time)
@@ -173,7 +174,7 @@ for i in range(Z_mesh_RMSE.shape[0]):
     for j in range(Z_mesh_RMSE.shape[1]):
         Z_mesh_RMSE[i][j] = RMSE_SCORE[k]
         k += 1 
-print('temps remplissage grille = ',time.time() - start_time)
+#print('temps remplissage grille = ',time.time() - start_time)
 
 fig, ax = plt.subplots()  
 
@@ -204,3 +205,19 @@ kr_final.fit(np.concatenate((X_hold_out_set,X_training_set)),
 Y_kr_pred_final = kr_final.predict(X_validation)
 print('score final RMSE =',RMSE(Y_validation,Y_kr_pred_final))
 #print('temps execution = ',time.time() - start_time)
+
+matrice_RMSE= open("Resultat_RMSE.txt","wb")
+matrice_RMSE_pickler = pickle.Pickler(matrice_RMSE)
+for i in range(len(RMSE_SCORE)):
+    matrice_RMSE_pickler.dump(RMSE_SCORE[i])
+matrice_RMSE.close()
+matrice_R2 = open("Resultat_R2.txt","wb")
+matrice_R2_pickler = pickle.Pickler(matrice_R2)
+for i in range(len(R2_SCORE)):
+    matrice_R2_pickler.dump(R2_SCORE[i])
+matrice_R2.close()
+matrice_R2 = open("Resultat_MAE.txt","wb")
+matrice_MAE_pickler = pickle.Pickler(matrice_MAE)
+for i in range(len(MAE_SCORE)):
+    matrice_MAE_pickler.dump(MAE_SCORE[i])
+matrice_MAE.close()
