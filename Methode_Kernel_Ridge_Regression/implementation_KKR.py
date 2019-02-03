@@ -7,9 +7,9 @@
 ################################################################################
 # roccad@gmail.com
  
-import numpy as np
-##import multiprocessing
-##from scipy import sparse as sp
+#import numpy as np
+###import multiprocessing
+###from scipy import sparse as sp
 #from sklearn import model_selection
 #from sklearn.svm import SVR
 #from sklearn.model_selection import GridSearchCV
@@ -77,7 +77,7 @@ X_training_set = np.concatenate((X_under_4_H,X_training_set),axis=0)
 Y_training_set = np.concatenate((Y_under_4_H,Y_training_set),axis =0)   
 
 #print('temps construction dataset= ',time.time() - start_time)
-
+print('dataset genere')
 ################################################################################
 # ###################### entrainement du modele ################################
 ################################################################################
@@ -121,11 +121,11 @@ scoring_dict = {'RMSE' : metrics.make_scorer(RMSE),
 # notre_gamma optimal serait -20 a chercher dans [-11,-40]
 
 # lambda optimal dans l'article est 10**(-6.5), -21 en base 2,a chercher dans :5 -40, -5
-alpha_grid_log2 = np.arange(-30,0,0.5)
-alpha_grid = [2**alpha_grid_log2[i] for i in range(len(alpha_grid_log2))]
-gamma_grid_log2 = np.arange(-30,-10,0.5)
+alpha_grid_log2 = np.arange(-40,-20,0.5)
+alpha_grid = [2.**alpha_grid_log2[i] for i in range(len(alpha_grid_log2))]
+gamma_grid_log2 = np.arange(-30,-5,1)
 #gamma_grid_log2 = [-15]
-gamma_grid = [2**gamma_grid_log2[i] for i in range(len(gamma_grid_log2))]
+gamma_grid = [2.**gamma_grid_log2[i] for i in range(len(gamma_grid_log2))]
 
 
 # stockage des score pour les differentes mesure
@@ -138,7 +138,7 @@ i = 0
 for alpha in alpha_grid: 
     for gamma in gamma_grid:
         #gamma = 1e-4
-        Y_kr_pred = KernelRidge(kernel='rbf', gamma = gamma, alpha = alpha).fit(X_training_set,Y_training_set).predict(X_training_set)     
+        Y_kr_pred = KernelRidge(kernel='laplacian', gamma = gamma, alpha = alpha).fit(X_training_set,Y_training_set).predict(X_training_set)     
         RMSE_SCORE.append(RMSE(Y_training_set,Y_kr_pred))
         R2_SCORE.append(R2(Y_training_set,Y_kr_pred))
         MAE_SCORE.append(MAE(Y_training_set,Y_kr_pred))
@@ -190,7 +190,7 @@ fig.colorbar(cs)
 plt.show()
 # ######################## performance modele ##################################
 
-kr_final = KernelRidge(kernel='rbf', gamma = gamma_min, alpha = alpha_min)
+kr_final = KernelRidge(kernel='laplacian', gamma = gamma_min, alpha = alpha_min)
 kr_final.fit(np.concatenate((X_hold_out_set,X_training_set)),
 
              np.concatenate((Y_hold_out_set,Y_training_set)))     
@@ -198,17 +198,17 @@ Y_kr_pred_final = kr_final.predict(X_validation)
 print('score final RMSE =',RMSE(Y_validation,Y_kr_pred_final))
 #print('temps execution = ',time.time() - start_time)
 
-matrice_RMSE= open("Resultat_RMSE.txt","wb")
+matrice_RMSE= open("Resultat_RMSE_Laplacian.txt","wb")
 matrice_RMSE_pickler = pickle.Pickler(matrice_RMSE)
 for i in range(len(RMSE_SCORE)):
     matrice_RMSE_pickler.dump(RMSE_SCORE[i])
 matrice_RMSE.close()
-matrice_R2 = open("Resultat_R2.txt","wb")
+matrice_R2 = open("Resultat_R2_Laplacian.txt","wb")
 matrice_R2_pickler = pickle.Pickler(matrice_R2)
 for i in range(len(R2_SCORE)):
     matrice_R2_pickler.dump(R2_SCORE[i])
 matrice_R2.close()
-matrice_R2 = open("Resultat_MAE.txt","wb")
+matrice_R2 = open("Resultat_MAE_Laplacian.txt","wb")
 matrice_MAE_pickler = pickle.Pickler(matrice_MAE)
 for i in range(len(MAE_SCORE)):
     matrice_MAE_pickler.dump(MAE_SCORE[i])
