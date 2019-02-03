@@ -153,16 +153,8 @@ print('alpha min, gamma min=',alpha_min,gamma_min,'minimum RMSE sur training',mi
 # calcul erreur sur set taille 100 pour validation
 Y_kr_pred = KernelRidge(kernel='rbf', gamma = gamma_min, alpha = alpha_min).fit(X_training_set,Y_training_set).predict(X_training_set)     
 print('erreur sur set validation de taille 100',RMSE(Y_training_set,Y_kr_pred))
-print('temps recherche hyperparametres',time.time() - start_time)
-def plot_alpha():    
-    fig, ax = plt.subplots()
-    ax.plot(alpha_grid,RMSE_SCORE,label = 'RMSE',color = 'r',marker='o')
-    #ax.set_ylim(min(RMSE_SCORE)-200,max(RMSE_SCORE)+200)
-    ax.set_xlabel(r'$\alpha$')
-    ax.set_ylabel('score')
-    ax.set_title(r'performance en fonction du parametre $\alpha$ pour $\gamma$ = 1e-2')
-    plt.show()
-    return None
+#print('temps recherche hyperparametres',time.time() - start_time)
+
 
 # remplissage sur la grille a partir des scores calcules
 
