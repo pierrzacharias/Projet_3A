@@ -2,26 +2,27 @@
 # Same script as implementation_KKR
 # but we use multiprocessing to compute faster 
 ################################################################################
-#import os
+import os
 #os.chdir("C:/Users/pierre gauthier/Documents/3A/Projet_3A/Methode_Kernel_Ridge_Regression")
+os.chdir("C:/Users/pierr/Documents/3A/projet/Projet_3A/Methode_Kernel_Ridge_Regression")
 ################################################################################
 # roccad@gmail.com
  
 import numpy as np
 ##import multiprocessing
 ##from scipy import sparse as sp
-#from sklearn import model_selection
-#from sklearn.svm import SVR
-#from sklearn.model_selection import GridSearchCV
-#from sklearn.model_selection import learning_curve
-#from sklearn.kernel_ridge import KernelRidge
-#from sklearn import metrics 
-#import matplotlib.pyplot as plt
-#import pickle
-#from math import sqrt
-#from math import log2
-#from matplotlib import ticker, cm 
-#import time
+from sklearn import model_selection
+from sklearn.svm import SVR
+from sklearn.model_selection import GridSearchCV
+from sklearn.model_selection import learning_curve
+from sklearn.kernel_ridge import KernelRidge
+from sklearn import metrics 
+import matplotlib.pyplot as plt
+import pickle
+from math import sqrt
+from math import log2
+from matplotlib import ticker, cm 
+import time
 
 ################################################################################
 plt.close()
@@ -67,7 +68,7 @@ Y_above_4_H = [Y_dataset[i] for i in inds if H_atoms[i] > 4]
 
 # on coupe de maniere aleatoire entre une basse de train (taille 1000) et une base de test
 X_train, X_validation, Y_train,Y_validation = model_selection.train_test_split(
-    X_above_4_H, Y_above_4_H, train_size= len(X_dataset) - 1000 + len(X_under_4_H)) 
+    X_above_4_H, Y_above_4_H, train_size= len(X_dataset) - 1000 + len(X_under_4_H),random_state=100) 
 
 # on coupe le base de train en une base de train (900) pour les hyperparametre et une base test (taille 100) pour valider le choix des hyperparametres
 X_training_set, X_hold_out_set, Y_training_set,Y_hold_out_set = model_selection.train_test_split(X_train,Y_train,train_size = len(X_train) - 100)  
@@ -90,7 +91,7 @@ Y_training_set = np.concatenate((Y_under_4_H,Y_training_set),axis =0)
 # lambda de -40 a -5
 # gamma = 1/sigma**2 
 
-param_grid={"alpha": [np.linspace(-30, -5, 20)]}
+param_grid={"alpha": [np.linspace(-30, -1, 20)]}
 def RMSE(y_true, y_pred): return sqrt(metrics.mean_squared_error(y_true, y_pred))
 def R2(y_true, y_pred): return 1 - (metrics.r2_score(y_true, y_pred))
 def MAE(y_true, y_pred): return metrics.mean_absolute_error(y_true, y_pred)
@@ -118,14 +119,14 @@ scoring_dict = {'RMSE' : metrics.make_scorer(RMSE),
 
 # les valeur optimale dans l'article sont notre_gamma = 1/(2* gamma_article **2)
 # gamma optimal article 724 recher dans [5,18]
-# notre_gamma optimal serait -20 a chercher dans [-11,-40]
+# notre_gamma optimal serait -19 a chercher dans [-11,-40]
 
-# lambda optimal dans l'article est 10**(-6.5), -21 en base 2,a chercher dans :5 -40, -5
-alpha_grid_log2 = np.arange(-30,0,0.5)
-alpha_grid = [2**alpha_grid_log2[i] for i in range(len(alpha_grid_log2))]
+# lambda optimal dans l'article est 10**(-6.5), -21 en base 2,a cherher dans :5 -40, -5
+alpha_grid_log2 = np.arange(-30,-10,0.5)
+alpha_grid = [2.**alpha_grid_log2[i] for i in range(len(alpha_grid_log2))]
 gamma_grid_log2 = np.arange(-30,-10,0.5)
 #gamma_grid_log2 = [-15]
-gamma_grid = [2**gamma_grid_log2[i] for i in range(len(gamma_grid_log2))]
+gamma_grid = [2.**gamma_grid_log2[i] for i in range(len(gamma_grid_log2))]
 
 
 # stockage des score pour les differentes mesure
@@ -145,7 +146,7 @@ for alpha in alpha_grid:
         if RMSE_SCORE[-1] < min_RMSE: 
             alpha_min, gamma_min = alpha, gamma
             min_RMSE = RMSE_SCORE[-1]
-        print(i,'iteration sur',2400)
+        print(i,'iteration sur',len(gamma_grid)*len(alpha_grid))
         i += 1
 
 print('alpha min, gamma min=',alpha_min,gamma_min,'minimum RMSE sur training',min(RMSE_SCORE))
@@ -198,18 +199,27 @@ Y_kr_pred_final = kr_final.predict(X_validation)
 print('score final RMSE =',RMSE(Y_validation,Y_kr_pred_final))
 #print('temps execution = ',time.time() - start_time)
 
-matrice_RMSE= open("Resultat_RMSE.txt","wb")
+matrice_RMSE= open("Resultat_RMSE_RBF_2_30_10.txt","wb")
 matrice_RMSE_pickler = pickle.Pickler(matrice_RMSE)
 for i in range(len(RMSE_SCORE)):
     matrice_RMSE_pickler.dump(RMSE_SCORE[i])
 matrice_RMSE.close()
-matrice_R2 = open("Resultat_R2.txt","wb")
+matrice_R2 = open("Resultat_R2_RBF_2_30_10.txt","wb")
 matrice_R2_pickler = pickle.Pickler(matrice_R2)
 for i in range(len(R2_SCORE)):
     matrice_R2_pickler.dump(R2_SCORE[i])
 matrice_R2.close()
-matrice_R2 = open("Resultat_MAE.txt","wb")
+matrice_MAE = open("Resultat_MAE_RBF_2_30_10.txt","wb")
 matrice_MAE_pickler = pickle.Pickler(matrice_MAE)
 for i in range(len(MAE_SCORE)):
     matrice_MAE_pickler.dump(MAE_SCORE[i])
 matrice_MAE.close()
+
+
+################################################################################
+#resultats pour RBF
+#alpha_grid_log2 = np.arange(-30,-10,0.5)
+#gamma_grid_log2 = np.arange(-30,-10,0.5)
+#score final RMSE = 10.335641860418134 [-13,-29]
+#score final MAE = 11.050325445167802 [-11.5,29]
+#score final R2 = 0.9977 [-13,-29]

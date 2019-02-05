@@ -1,6 +1,13 @@
-\BOOKMARK [0][-]{chapter.1}{Th\351orie}{}% 1
-\BOOKMARK [1][-]{section.1.1}{Support Vector Machines methods \(SVM}{chapter.1}% 2
-\BOOKMARK [1][-]{section.1.2}{Ridge Regression}{chapter.1}% 3
-\BOOKMARK [0][-]{chapter.2}{Experimentations}{}% 4
-\BOOKMARK [1][-]{section.2.1}{Base d'entrainement du mod\350le}{chapter.2}% 5
-\BOOKMARK [1][-]{section.2.2}{entra\356nement du mod\350le}{chapter.2}% 6
+\BOOKMARK [0][-]{chapter.1}{Contexte de l'\351tude}{}% 1
+\BOOKMARK [1][-]{section.1.1}{The Harvard Clean Energie Project}{chapter.1}% 2
+\BOOKMARK [1][-]{section.1.2}{Descripteurs des mol\351cules}{chapter.1}% 3
+\BOOKMARK [0][-]{chapter.2}{Mod\350le de pr\351diction : Machine learning}{}% 4
+\BOOKMARK [1][-]{section.2.1}{Support Vector Machines methods \(SVM\)}{chapter.2}% 5
+\BOOKMARK [1][-]{section.2.2}{Donn\351es non-lin\351airement s\351parables : Astuce du noyaux.}{chapter.2}% 6
+\BOOKMARK [1][-]{section.2.3}{Variable d'\351cart}{chapter.2}% 7
+\BOOKMARK [1][-]{section.2.4}{Application des m\351thode de noyaux \340 la Ridge Regression}{chapter.2}% 8
+\BOOKMARK [0][-]{chapter.3}{Experimentations}{}% 9
+\BOOKMARK [1][-]{section.3.1}{\311valuations des mod\350les}{chapter.3}% 10
+\BOOKMARK [1][-]{section.3.2}{noyaux pour la SVM}{chapter.3}% 11
+\BOOKMARK [1][-]{section.3.3}{bases d'entra\356nement et de test des mod\350les}{chapter.3}% 12
+\BOOKMARK [1][-]{section.3.4}{R\351sultats}{chapter.3}% 13

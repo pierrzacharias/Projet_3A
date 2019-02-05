@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2017.11.26)  29 JAN 2019 11:02
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2017.11.26)  5 FEB 2019 04:20
 entering extended mode
 **./Rapport_projet_v1.tex
 (Rapport_projet_v1.tex
@@ -535,32 +535,6 @@ LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 Package: mathrsfs 1996/01/01 Math RSFS package v1.0 (jk)
 \symrsfs=\mathgroup6
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
-Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphics.sty"
-Package: graphics 2017/06/25 v1.2c Standard LaTeX Graphics (DPC,SPQR)
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\trig.sty"
-Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
-)
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics-cfg\graphics.cfg"
-File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
-)
-Package graphics Info: Driver file: pdftex.def on input line 99.
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics-def\pdftex.def"
-File: pdftex.def 2017/06/24 v1.0g Graphics/color driver for pdftex
-))
-\Gin@req@height=\dimen123
-\Gin@req@width=\dimen124
-)
-("C:\Program Files\MiKTeX 2.9\tex\latex\appendix\appendix.sty"
-Package: appendix 2009/09/02 v1.2b extra appendix facilities
-\c@@pps=\count112
-\c@@ppsavesec=\count113
-\c@@ppsaveapp=\count114
-)
 ("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\hyperref.sty"
 Package: hyperref 2017/03/14 v6.85a Hypertext links for LaTeX
 
@@ -613,16 +587,16 @@ Package: auxhook 2016/05/16 v1.4 Hooks for auxiliary files (HO)
 ("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\kvoptions.sty"
 Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
 )
-\@linkdim=\dimen125
-\Hy@linkcounter=\count115
-\Hy@pagecounter=\count116
+\@linkdim=\dimen123
+\Hy@linkcounter=\count112
+\Hy@pagecounter=\count113
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\pd1enc.def"
 File: pd1enc.def 2017/03/14 v6.85a Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
 ... no UTF-8 mapping file for font encoding PD1
 )
-\Hy@SavedSpaceFactor=\count117
+\Hy@SavedSpaceFactor=\count114
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\hyperref.cfg"
 File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
@@ -634,17 +608,17 @@ Package hyperref Info: Plain pages OFF on input line 4513.
 Package hyperref Info: Backreferencing OFF on input line 4518.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4751.
-\c@Hy@tempcnt=\count118
+\c@Hy@tempcnt=\count115
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\url\url.sty"
 \Urlmuskip=\muskip11
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 5104.
-\XeTeXLinkMargin=\dimen126
-\Fld@menulength=\count119
-\Field@Width=\dimen127
-\Fld@charsize=\dimen128
+\XeTeXLinkMargin=\dimen124
+\Fld@menulength=\count116
+\Field@Width=\dimen125
+\Fld@charsize=\dimen126
 Package hyperref Info: Hyper figures OFF on input line 6358.
 Package hyperref Info: Link nesting OFF on input line 6363.
 Package hyperref Info: Hyper index ON on input line 6366.
@@ -654,17 +628,17 @@ Package hyperref Info: Link coloring with OCG OFF on input line 6383.
 Package hyperref Info: PDF/A mode OFF on input line 6388.
 LaTeX Info: Redefining \ref on input line 6428.
 LaTeX Info: Redefining \pageref on input line 6432.
-\Hy@abspage=\count120
-\c@Item=\count121
-\c@Hfootnote=\count122
+\Hy@abspage=\count117
+\c@Item=\count118
+\c@Hfootnote=\count119
 )
 
 Package hyperref Message: Driver (autodetected): hpdftex.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\hpdftex.def"
 File: hpdftex.def 2017/03/14 v6.85a Hyperref driver for pdfTeX
-\Fld@listcount=\count123
-\c@bookmark@seq@number=\count124
+\Fld@listcount=\count120
+\c@bookmark@seq@number=\count121
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\rerunfilecheck.sty"
 Package: rerunfilecheck 2016/05/16 v1.8 Rerun checks for auxiliary files (HO)
@@ -672,6 +646,32 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 82.
 )
 \Hy@SectionHShift=\skip51
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
+Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphics.sty"
+Package: graphics 2017/06/25 v1.2c Standard LaTeX Graphics (DPC,SPQR)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\trig.sty"
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics-cfg\graphics.cfg"
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 99.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics-def\pdftex.def"
+File: pdftex.def 2017/06/24 v1.0g Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen127
+\Gin@req@width=\dimen128
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\appendix\appendix.sty"
+Package: appendix 2009/09/02 v1.2b extra appendix facilities
+\c@@pps=\count122
+\c@@ppsavesec=\count123
+\c@@ppsaveapp=\count124
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\caption\subcaption.sty"
 Package: subcaption 2016/05/22 v1.1-161 Sub-captions (AR)
@@ -711,25 +711,32 @@ Package: verbatim 2014/10/28 v1.5q LaTeX2e package for verbatim enhancements
 \verbatim@line=\toks28
 \verbatim@in@stream=\read1
 )
-(Rapport_projet_v1.aux)
+("C:\Program Files\MiKTeX 2.9\tex\latex\fontawesome\fontawesome.sty"
+Package: fontawesome 2016/05/15 v4.6.3.1 font awesome icons
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\fontawesome\fontawesomesymbols-generic.
+tex")
+("C:\Program Files\MiKTeX 2.9\tex\latex\fontawesome\fontawesomesymbols-pdftex.t
+ex")) (Rapport_projet_v1.aux)
 \openout1 = `Rapport_projet_v1.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Try loading font information for T1+lmr on input line 23.
- ("C:\Program Files\MiKTeX 2.9\tex\latex\lm\t1lmr.fd"
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Try loading font information for T1+lmr on input line 24.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\lm\t1lmr.fd"
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 *geometry* driver: auto-detecting
@@ -766,21 +773,40 @@ File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Info: Redefining \degres on input line 23.
-LaTeX Info: Redefining \dots on input line 23.
-LaTeX Info: Redefining \up on input line 23.
+LaTeX Info: Redefining \degres on input line 24.
+LaTeX Info: Redefining \dots on input line 24.
+LaTeX Info: Redefining \up on input line 24.
+\AtBeginShipoutBox=\box28
+Package hyperref Info: Link coloring OFF on input line 24.
+("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\nameref.sty"
+Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\gettitlestring.sty"
+Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
+)
+\c@section@level=\count128
+)
+LaTeX Info: Redefining \ref on input line 24.
+LaTeX Info: Redefining \pageref on input line 24.
+LaTeX Info: Redefining \nameref on input line 24.
+
+(Rapport_projet_v1.out) (Rapport_projet_v1.out)
+\@outlinefile=\write3
+\openout3 = `Rapport_projet_v1.out'.
+
+
 ("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count128
+\scratchcounter=\count129
 \scratchdimen=\dimen138
-\scratchbox=\box28
-\nofMPsegments=\count129
-\nofMParguments=\count130
+\scratchbox=\box29
+\nofMPsegments=\count130
+\nofMParguments=\count131
 \everyMPshowfont=\toks29
-\MPscratchCnt=\count131
+\MPscratchCnt=\count132
 \MPscratchDim=\dimen139
-\MPnumerator=\count132
-\makeMPintoPDFobject=\count133
+\MPnumerator=\count133
+\makeMPintoPDFobject=\count134
 \everyMPtoPDFconversion=\toks30
 ) ("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\epstopdf-base.sty"
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
@@ -795,50 +821,31 @@ Package grfext Info: Graphics extension search list:
 G,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 456.
 )
-\AtBeginShipoutBox=\box29
-Package hyperref Info: Link coloring OFF on input line 23.
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\nameref.sty"
-Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
-
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\gettitlestring.sty"
-Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
-)
-\c@section@level=\count134
-)
-LaTeX Info: Redefining \ref on input line 23.
-LaTeX Info: Redefining \pageref on input line 23.
-LaTeX Info: Redefining \nameref on input line 23.
-
-(Rapport_projet_v1.out) (Rapport_projet_v1.out)
-\@outlinefile=\write3
-\openout3 = `Rapport_projet_v1.out'.
-
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-<graphes/mines_nancy.png, id=27, 313.17pt x 161.60374pt>
+<graphes/mines_nancy.png, id=55, 313.17pt x 161.60374pt>
 File: graphes/mines_nancy.png Graphic file (type png)
 <use graphes/mines_nancy.png>
-Package pdftex.def Info: graphes/mines_nancy.png  used on input line 33. on inp
-ut line 33.
+Package pdftex.def Info: graphes/mines_nancy.png  used on input line 34. on inp
+ut line 34.
 Package pdftex.def Info: Requested size: 110.27536pt x 56.9055pt on input line 
-33.
-<graphes/elie_cartan.png, id=29, 332.24126pt x 152.57pt>
+34.
+<graphes/elie_cartan.png, id=57, 332.24126pt x 152.57pt>
 File: graphes/elie_cartan.png Graphic file (type png)
 <use graphes/elie_cartan.png>
-Package pdftex.def Info: graphes/elie_cartan.png  used on input line 36. on inp
-ut line 36.
+Package pdftex.def Info: graphes/elie_cartan.png  used on input line 37. on inp
+ut line 37.
 Package pdftex.def Info: Requested size: 123.92097pt x 56.9055pt on input line 
-36.
-<graphes/univ_lorraine.png, id=30, 339.2675pt x 149.55875pt>
+37.
+<graphes/univ_lorraine.png, id=58, 339.2675pt x 149.55875pt>
 File: graphes/univ_lorraine.png Graphic file (type png)
 <use graphes/univ_lorraine.png>
-Package pdftex.def Info: graphes/univ_lorraine.png  used on input line 39. on i
-nput line 39.
+Package pdftex.def Info: graphes/univ_lorraine.png  used on input line 40. on i
+nput line 40.
 Package pdftex.def Info: Requested size: 129.08864pt x 56.9055pt on input line 
-39.
+40.
 
-Overfull \hbox (3.61127pt too wide) in paragraph at lines 39--40
+Overfull \hbox (3.61127pt too wide) in paragraph at lines 40--41
 [][] 
  []
 
@@ -894,134 +901,240 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.62 \newpage
+l.63 \newpage
               [1
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 67--69
+Underfull \hbox (badness 10000) in paragraph at lines 68--70
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 67--69
+Underfull \hbox (badness 10000) in paragraph at lines 68--70
 
  []
 
-[2]
+LaTeX Font Info:    Try loading font information for T1+lmtt on input line 73.
+("C:\Program Files\MiKTeX 2.9\tex\latex\lm\t1lmtt.fd"
+File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
+) [2]
 Chapitre 1.
-<graphes/SVM_donnee.png, id=58, 462.528pt x 345.4506pt>
-File: graphes/SVM_donnee.png Graphic file (type png)
-<use graphes/SVM_donnee.png>
-Package pdftex.def Info: graphes/SVM_donnee.png  used on input line 85. on inpu
-t line 85.
-Package pdftex.def Info: Requested size: 190.4846pt x 142.26378pt on input line
- 85.
-<graphes/SVM_separee.png, id=59, 462.528pt x 345.4506pt>
-File: graphes/SVM_separee.png Graphic file (type png)
-<use graphes/SVM_separee.png>
-Package pdftex.def Info: graphes/SVM_separee.png  used on input line 86. on inp
-ut line 86.
-Package pdftex.def Info: Requested size: 190.4846pt x 142.26378pt on input line
- 86.
+
+Underfull \hbox (badness 10000) in paragraph at lines 88--89
+
+ []
+
 [3
 
- <./graphes/SVM_donnee.png> <./graphes/SVM_separee.png>]
-<graphes/svm05.png, id=75, 642.4pt x 507.91626pt>
-File: graphes/svm05.png Graphic file (type png)
-<use graphes/svm05.png>
-Package pdftex.def Info: graphes/svm05.png  used on input line 102. on input li
-ne 102.
-Package pdftex.def Info: Requested size: 215.91354pt x 170.71652pt on input lin
-e 102.
- [4 <./graphes/svm05.png (PNG copy)>]
-<graphes/mnoyaux05.png, id=83, 877.94667pt x 222.88878pt>
-File: graphes/mnoyaux05.png Graphic file (type png)
-<use graphes/mnoyaux05.png>
-Package pdftex.def Info: graphes/mnoyaux05.png  used on input line 141. on inpu
-t line 141.
-Package pdftex.def Info: Requested size: 448.29613pt x 113.81102pt on input lin
-e 141.
-
-Overfull \hbox (30.04245pt too wide) in paragraph at lines 141--142
-[][] 
- []
-
-[5 <./graphes/mnoyaux05.png (PNG copy)>]
-Chapitre 2.
-
-Overfull \hbox (41.7461pt too wide) in paragraph at lines 205--214
+] [4]
+Overfull \hbox (41.7461pt too wide) in paragraph at lines 118--127
 [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 187--216
+Underfull \hbox (badness 10000) in paragraph at lines 99--129
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 187--216
+Underfull \hbox (badness 10000) in paragraph at lines 99--129
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 187--216
+Underfull \hbox (badness 10000) in paragraph at lines 99--129
 
  []
 
+[5]
+Underfull \hbox (badness 10000) in paragraph at lines 143--145
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
+ []
 
-[6
-
-]
-Underfull \hbox (badness 10000) in paragraph at lines 230--232
+[6]
+Underfull \hbox (badness 10000) in paragraph at lines 181--182
 
  []
 
 [7]
-<graphes/non_H_atom.png, id=102, 462.528pt x 345.4506pt>
+Chapitre 2.
+<graphes/SVM_donnee.png, id=140, 462.528pt x 345.4506pt>
+File: graphes/SVM_donnee.png Graphic file (type png)
+<use graphes/SVM_donnee.png>
+Package pdftex.def Info: graphes/SVM_donnee.png  used on input line 208. on inp
+ut line 208.
+Package pdftex.def Info: Requested size: 190.4846pt x 142.26378pt on input line
+ 208.
+<graphes/SVM_separee.png, id=141, 462.528pt x 345.4506pt>
+File: graphes/SVM_separee.png Graphic file (type png)
+<use graphes/SVM_separee.png>
+Package pdftex.def Info: graphes/SVM_separee.png  used on input line 209. on in
+put line 209.
+Package pdftex.def Info: Requested size: 190.4846pt x 142.26378pt on input line
+ 209.
+[8
+
+ <./graphes/SVM_donnee.png> <./graphes/SVM_separee.png>]
+<graphes/svm05.png, id=153, 642.4pt x 507.91626pt>
+File: graphes/svm05.png Graphic file (type png)
+<use graphes/svm05.png>
+Package pdftex.def Info: graphes/svm05.png  used on input line 226. on input li
+ne 226.
+Package pdftex.def Info: Requested size: 179.92958pt x 142.26378pt on input lin
+e 226.
+<graphes/svm04.png, id=154, 577.49083pt x 466.7156pt>
+File: graphes/svm04.png Graphic file (type png)
+<use graphes/svm04.png>
+Package pdftex.def Info: graphes/svm04.png  used on input line 235. on input li
+ne 235.
+Package pdftex.def Info: Requested size: 176.0331pt x 142.26378pt on input line
+ 235.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<graphes/svm07.png, id=155, 474.77374pt x 319.69438pt>
+File: graphes/svm07.png Graphic file (type png)
+<use graphes/svm07.png>
+Package pdftex.def Info: graphes/svm07.png  used on input line 246. on input li
+ne 246.
+Package pdftex.def Info: Requested size: 211.27727pt x 142.26378pt on input lin
+e 246.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[9 <./graphes/svm05.png (PNG copy)>] [10 <./graphes/svm04.png (PNG copy)> <./gr
+aphes/svm07.png>]
+<graphes/exemple_noyaux.png, id=171, 987.2082pt x 489.2679pt>
+File: graphes/exemple_noyaux.png Graphic file (type png)
+<use graphes/exemple_noyaux.png>
+Package pdftex.def Info: graphes/exemple_noyaux.png  used on input line 328. on
+ input line 328.
+Package pdftex.def Info: Requested size: 287.03622pt x 142.26378pt on input lin
+e 328.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[11]
+<graphes/separation.png, id=178, 490.83376pt x 103.38625pt>
+File: graphes/separation.png Graphic file (type png)
+<use graphes/separation.png>
+Package pdftex.def Info: graphes/separation.png  used on input line 346. on inp
+ut line 346.
+Package pdftex.def Info: Requested size: 405.24991pt x 85.35826pt on input line
+ 346.
+<graphes/ecart.png, id=179, 666.99188pt x 463.7325pt>
+File: graphes/ecart.png Graphic file (type png)
+<use graphes/ecart.png>
+Package pdftex.def Info: graphes/ecart.png  used on input line 366. on input li
+ne 366.
+Package pdftex.def Info: Requested size: 163.69432pt x 113.81102pt on input lin
+e 366.
+ [12 <./graphes/exemple_noyaux.png> <./graphes/separation.png>]
+Overfull \hbox (9.08617pt too wide) in paragraph at lines 403--403
+[]\T1/lmr/bx/n/17.28 Application des mé-thode de noyaux à la Ridge
+ []
+
+[13 <./graphes/ecart.png>] [14]
+Chapitre 3.
+[15
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 472--473
+
+ []
+
+<graphes/noyaux_gaussien.png, id=211, 566.86781pt x 411.78844pt>
+File: graphes/noyaux_gaussien.png Graphic file (type png)
+<use graphes/noyaux_gaussien.png>
+Package pdftex.def Info: graphes/noyaux_gaussien.png  used on input line 483. o
+n input line 483.
+Package pdftex.def Info: Requested size: 195.83774pt x 142.26378pt on input lin
+e 483.
+[16 <./graphes/noyaux_gaussien.png>]
+<graphes/noyaux_laplacien.png, id=221, 551.81157pt x 401.24907pt>
+File: graphes/noyaux_laplacien.png Graphic file (type png)
+<use graphes/noyaux_laplacien.png>
+Package pdftex.def Info: graphes/noyaux_laplacien.png  used on input line 504. 
+on input line 504.
+Package pdftex.def Info: Requested size: 195.64609pt x 142.26378pt on input lin
+e 504.
+ [17 <./graphes/noyaux_laplacien.png>]
+<graphes/non_H_atom.png, id=233, 462.528pt x 345.4506pt>
 File: graphes/non_H_atom.png Graphic file (type png)
 <use graphes/non_H_atom.png>
-Package pdftex.def Info: graphes/non_H_atom.png  used on input line 263. on inp
-ut line 263.
-Package pdftex.def Info: Requested size: 228.58153pt x 170.71652pt on input lin
-e 263.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 272.
- [8 <./graphes/non_H_atom.png>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 272.
+Package pdftex.def Info: graphes/non_H_atom.png  used on input line 539. on inp
+ut line 539.
+Package pdftex.def Info: Requested size: 171.43614pt x 128.0374pt on input line
+ 539.
+
+[18 <./graphes/non_H_atom.png>]
+<graphes/resultat_RBF_RMSE.png, id=247, 462.528pt x 345.4506pt>
+File: graphes/resultat_RBF_RMSE.png Graphic file (type png)
+<use graphes/resultat_RBF_RMSE.png>
+Package pdftex.def Info: graphes/resultat_RBF_RMSE.png  used on input line 556.
+ on input line 556.
+Package pdftex.def Info: Requested size: 190.4846pt x 142.26378pt on input line
+ 556.
+<graphes/resultat_RBF_MAE.png, id=248, 462.528pt x 345.4506pt>
+File: graphes/resultat_RBF_MAE.png Graphic file (type png)
+<use graphes/resultat_RBF_MAE.png>
+Package pdftex.def Info: graphes/resultat_RBF_MAE.png  used on input line 557. 
+on input line 557.
+Package pdftex.def Info: Requested size: 190.4846pt x 142.26378pt on input line
+ 557.
+<graphes/resultat_RBF_R2.png, id=249, 462.528pt x 345.4506pt>
+File: graphes/resultat_RBF_R2.png Graphic file (type png)
+<use graphes/resultat_RBF_R2.png>
+Package pdftex.def Info: graphes/resultat_RBF_R2.png  used on input line 558. o
+n input line 558.
+Package pdftex.def Info: Requested size: 190.4846pt x 142.26378pt on input line
+ 558.
+
+Underfull \hbox (badness 10000) in paragraph at lines 563--564
+
+ []
+
+[19 <./graphes/resultat_RBF_RMSE.png> <./graphes/resultat_RBF_MAE.png> <./graph
+es/resultat_RBF_R2.png>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 578.
+ [20]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 578.
  (Rapport_projet_v1.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 272.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 272.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 578.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 578.
 Package rerunfilecheck Info: File `Rapport_projet_v1.out' has not changed.
-(rerunfilecheck)             Checksum: 8FA9793B5DF7BEECC1DE991ED5A05823;399.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 272.
+(rerunfilecheck)             Checksum: CF5F3906548C71661EBC148D54D96795;1018.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 578.
  ) 
 Here is how much of TeX's memory you used:
- 9524 strings out of 493312
- 140038 string characters out of 3138898
- 238077 words of memory out of 3000000
- 12872 multiletter control sequences out of 15000+200000
- 56941 words of font info for 52 fonts, out of 3000000 for 9000
+ 11168 strings out of 493312
+ 162717 string characters out of 3138898
+ 255617 words of memory out of 3000000
+ 14423 multiletter control sequences out of 15000+200000
+ 65791 words of font info for 55 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,17n,40p,720b,487s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathex.enc}{C:/Program Fil
-es/MiKTeX 2.9/fonts/enc/dvips/lm/lm-mathit.enc}{C:/Program Files/MiKTeX 2.9/fon
-ts/enc/dvips/lm/lm-mathsy.enc}{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/l
-m-rm.enc}{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ec.enc}<C:/Program 
+ 42i,15n,40p,667b,458s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-rm.enc}{C:/Program Files/M
+iKTeX 2.9/fonts/enc/dvips/lm/lm-mathit.enc}{C:/Program Files/MiKTeX 2.9/fonts/e
+nc/dvips/lm/lm-mathsy.enc}{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ma
+thex.enc}{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ec.enc}<C:/Program 
 Files/MiKTeX 2.9/fonts/type1/public/lm/lmbx12.pfb><C:/Program Files/MiKTeX 2.9/
 fonts/type1/public/lm/lmcsc10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publ
 ic/lm/lmex10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmmi12.pfb>
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmmi6.pfb><C:/Program Files/
 MiKTeX 2.9/fonts/type1/public/lm/lmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/t
 ype1/public/lm/lmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmr
-8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmri12.pfb><C:/Program
- Files/MiKTeX 2.9/fonts/type1/public/lm/lmsy10.pfb><C:/Program Files/MiKTeX 2.9
-/fonts/type1/public/lm/lmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publi
-c/amsfonts/symbols/msam10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/a
-msfonts/symbols/msbm10.pfb>
-Output written on Rapport_projet_v1.pdf (9 pages, 439661 bytes).
+6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmr8.pfb><C:/Program F
+iles/MiKTeX 2.9/fonts/type1/public/lm/lmri12.pfb><C:/Program Files/MiKTeX 2.9/f
+onts/type1/public/lm/lmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public
+/lm/lmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmtt12.pfb><C:
+/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Pr
+ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on Rapport_projet_v1.pdf (21 pages, 1078189 bytes).
 PDF statistics:
- 168 PDF objects out of 1000 (max. 8388607)
- 27 named destinations out of 1000 (max. 500000)
- 89 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 339 PDF objects out of 1000 (max. 8388607)
+ 95 named destinations out of 1000 (max. 500000)
+ 190 words of extra memory for PDF output out of 10000 (max. 10000000)
 
