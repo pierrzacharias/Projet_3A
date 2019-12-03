@@ -8,6 +8,7 @@ os.chdir("C:/Users/pierr/Documents/3A/projet/Projet_3A/Methode_Kernel_Ridge_Regr
 ################################################################################
 # roccad@gmail.com
  
+<<<<<<< HEAD
 import numpy as np
 ##import multiprocessing
 ##from scipy import sparse as sp
@@ -23,6 +24,23 @@ from math import sqrt
 from math import log2
 from matplotlib import ticker, cm 
 import time
+=======
+#import numpy as np
+###import multiprocessing
+###from scipy import sparse as sp
+#from sklearn import model_selection
+#from sklearn.svm import SVR
+#from sklearn.model_selection import GridSearchCV
+#from sklearn.model_selection import learning_curve
+#from sklearn.kernel_ridge import KernelRidge
+#from sklearn import metrics 
+#import matplotlib.pyplot as plt
+#import pickle
+#from math import sqrt
+#from math import log2
+#from matplotlib import ticker, cm 
+#import time
+>>>>>>> 097f4e1538a04c6831c82b6aa557684d62d3fe31
 
 ################################################################################
 plt.close()
@@ -78,7 +96,7 @@ X_training_set = np.concatenate((X_under_4_H,X_training_set),axis=0)
 Y_training_set = np.concatenate((Y_under_4_H,Y_training_set),axis =0)   
 
 #print('temps construction dataset= ',time.time() - start_time)
-
+print('dataset genere')
 ################################################################################
 # ###################### entrainement du modele ################################
 ################################################################################
@@ -121,10 +139,17 @@ scoring_dict = {'RMSE' : metrics.make_scorer(RMSE),
 # gamma optimal article 724 recher dans [5,18]
 # notre_gamma optimal serait -19 a chercher dans [-11,-40]
 
+<<<<<<< HEAD
 # lambda optimal dans l'article est 10**(-6.5), -21 en base 2,a cherher dans :5 -40, -5
 alpha_grid_log2 = np.arange(-30,-10,0.5)
 alpha_grid = [2.**alpha_grid_log2[i] for i in range(len(alpha_grid_log2))]
 gamma_grid_log2 = np.arange(-30,-10,0.5)
+=======
+# lambda optimal dans l'article est 10**(-6.5), -21 en base 2,a chercher dans :5 -40, -5
+alpha_grid_log2 = np.arange(-40,-5,0.5)
+alpha_grid = [2.**alpha_grid_log2[i] for i in range(len(alpha_grid_log2))]
+gamma_grid_log2 = np.arange(-30,-5,1)
+>>>>>>> 097f4e1538a04c6831c82b6aa557684d62d3fe31
 #gamma_grid_log2 = [-15]
 gamma_grid = [2.**gamma_grid_log2[i] for i in range(len(gamma_grid_log2))]
 
@@ -137,8 +162,9 @@ R2_SCORE = []
 min_RMSE = 1e6
 i = 0
 for alpha in alpha_grid: 
-    for gamma in gamma_grid:
+    #for gamma in gamma_grid:
         #gamma = 1e-4
+<<<<<<< HEAD
         Y_kr_pred = KernelRidge(kernel='rbf', gamma = gamma, alpha = alpha).fit(X_training_set,Y_training_set).predict(X_training_set)     
         RMSE_SCORE.append(RMSE(Y_training_set,Y_kr_pred))
         R2_SCORE.append(R2(Y_training_set,Y_kr_pred))
@@ -148,6 +174,17 @@ for alpha in alpha_grid:
             min_RMSE = RMSE_SCORE[-1]
         print(i,'iteration sur',len(gamma_grid)*len(alpha_grid))
         i += 1
+=======
+    Y_kr_pred = KernelRidge(kernel='linear',alpha = alpha).fit(X_training_set,Y_training_set).predict(X_training_set)     
+    RMSE_SCORE.append(RMSE(Y_training_set,Y_kr_pred))
+    R2_SCORE.append(R2(Y_training_set,Y_kr_pred))
+    MAE_SCORE.append(MAE(Y_training_set,Y_kr_pred))
+    if RMSE_SCORE[-1] < min_RMSE: 
+        alpha_min, gamma_min = alpha, gamma
+        min_RMSE = RMSE_SCORE[-1]
+    print(i,'iteration sur',2400)
+    i += 1
+>>>>>>> 097f4e1538a04c6831c82b6aa557684d62d3fe31
 
 print('alpha min, gamma min=',alpha_min,gamma_min,'minimum RMSE sur training',min(RMSE_SCORE))
 #print('temps de calcul sur la grille = ',time.time() - start_time)
@@ -191,7 +228,7 @@ fig.colorbar(cs)
 plt.show()
 # ######################## performance modele ##################################
 
-kr_final = KernelRidge(kernel='rbf', gamma = gamma_min, alpha = alpha_min)
+kr_final = KernelRidge(kernel='Laplacian', gamma = gamma_min, alpha = alpha_min)
 kr_final.fit(np.concatenate((X_hold_out_set,X_training_set)),
 
              np.concatenate((Y_hold_out_set,Y_training_set)))     
@@ -199,17 +236,29 @@ Y_kr_pred_final = kr_final.predict(X_validation)
 print('score final RMSE =',RMSE(Y_validation,Y_kr_pred_final))
 #print('temps execution = ',time.time() - start_time)
 
+<<<<<<< HEAD
 matrice_RMSE= open("Resultat_RMSE_RBF_2_30_10.txt","wb")
+=======
+matrice_RMSE= open("Resultat_RMSE_linear.txt","wb")
+>>>>>>> 097f4e1538a04c6831c82b6aa557684d62d3fe31
 matrice_RMSE_pickler = pickle.Pickler(matrice_RMSE)
 for i in range(len(RMSE_SCORE)):
     matrice_RMSE_pickler.dump(RMSE_SCORE[i])
 matrice_RMSE.close()
+<<<<<<< HEAD
 matrice_R2 = open("Resultat_R2_RBF_2_30_10.txt","wb")
+=======
+matrice_R2 = open("Resultat_R2_linear.txt","wb")
+>>>>>>> 097f4e1538a04c6831c82b6aa557684d62d3fe31
 matrice_R2_pickler = pickle.Pickler(matrice_R2)
 for i in range(len(R2_SCORE)):
     matrice_R2_pickler.dump(R2_SCORE[i])
 matrice_R2.close()
+<<<<<<< HEAD
 matrice_MAE = open("Resultat_MAE_RBF_2_30_10.txt","wb")
+=======
+matrice_MAE = open("Resultat_MAE_linear.txt","wb")
+>>>>>>> 097f4e1538a04c6831c82b6aa557684d62d3fe31
 matrice_MAE_pickler = pickle.Pickler(matrice_MAE)
 for i in range(len(MAE_SCORE)):
     matrice_MAE_pickler.dump(MAE_SCORE[i])
@@ -223,3 +272,8 @@ matrice_MAE.close()
 #score final RMSE = 10.335641860418134 [-13,-29]
 #score final MAE = 11.050325445167802 [-11.5,29]
 #score final R2 = 0.9977 [-13,-29]
+
+#resultats pour Laplacian
+#dans l'article alpha = 10**(-12) = -40 gamma = 10**(3.6)  = -12 
+#alpha_grid_log2 = np.arange(-40,-20,0.5)
+#gamma_grid_log2 = np.arange(-30,-5,1)

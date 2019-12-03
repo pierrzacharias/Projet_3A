@@ -79,8 +79,8 @@ ax.set_xlabel(r'$\gamma$')
 ax.set_ylabel(r'$\alpha$')
 #thicks = [i  for i in levels]
 cbar = fig.colorbar(cp, orientation='horizontal')
-cbar.ax.set_xticklabels([f'{i * 1e6:.2f}' for i in levels])
-cbar.ax.set_xlabel('$10^6$ RMSE')
+cbar.ax.set_xticklabels([f'{i * 1e6:.0f}' for i in levels])
+cbar.ax.set_xlabel('$10^{-6}$ RMSE')
 #cbar_ticks = levels
 #cbar.set_ticks(cbar_ticks)
 ax.plot([-13], [-29], 'k.', markersize=25.0)
@@ -133,8 +133,8 @@ ax.set_xlabel(r'$\gamma$')
 ax.set_ylabel(r'$\alpha$')
 #thicks = [i  for i in levels]
 cbar = fig.colorbar(cp, orientation='horizontal')
-cbar.ax.set_xticklabels([f'{i * 1e6:.2f}' for i in levels])
-cbar.ax.set_xlabel('$10^6$ MAE')
+cbar.ax.set_xticklabels([f'{i * 1e6:.0f}' for i in levels])
+cbar.ax.set_xlabel('$10^{-6}$ MAE')
 #cbar_ticks = levels
 #cbar.set_ticks(cbar_ticks)
 ax.plot([-11.5], [-29], 'k.', markersize=25.0)

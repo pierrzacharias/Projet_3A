@@ -3,7 +3,7 @@
 \BOOKMARK [1][-]{section.1.2}{Descripteurs des mol\351cules}{chapter.1}% 3
 \BOOKMARK [0][-]{chapter.2}{Mod\350le de pr\351diction : Machine learning}{}% 4
 \BOOKMARK [1][-]{section.2.1}{Support Vector Machines methods \(SVM\)}{chapter.2}% 5
-\BOOKMARK [1][-]{section.2.2}{Donn\351es non-lin\351airement s\351parables : Astuce du noyaux.}{chapter.2}% 6
+\BOOKMARK [1][-]{section.2.2}{Donn\351es non-lin\351airement s\351parables : Astuce du noyau.}{chapter.2}% 6
 \BOOKMARK [1][-]{section.2.3}{Variable d'\351cart}{chapter.2}% 7
 \BOOKMARK [1][-]{section.2.4}{Application des m\351thode de noyaux \340 la Ridge Regression}{chapter.2}% 8
 \BOOKMARK [0][-]{chapter.3}{Experimentations}{}% 9
@@ -11,3 +11,6 @@
 \BOOKMARK [1][-]{section.3.2}{noyaux pour la SVM}{chapter.3}% 11
 \BOOKMARK [1][-]{section.3.3}{bases d'entra\356nement et de test des mod\350les}{chapter.3}% 12
 \BOOKMARK [1][-]{section.3.4}{R\351sultats}{chapter.3}% 13
+\BOOKMARK [0][-]{chapter.4}{Perspectives}{}% 14
+\BOOKMARK [1][-]{section.4.1}{Random Forest}{chapter.4}% 15
+\BOOKMARK [1][-]{section.4.2}{Descripteurs Chimique}{chapter.4}% 16

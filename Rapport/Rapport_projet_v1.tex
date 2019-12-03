@@ -52,7 +52,7 @@
 	\textmd{Tuteurs : Jérémie Unterberg, Marianne Clausel, Dario Rocca}
 	% Bottom of the page
 	\vfill
-	{\textit{{\large 21 Novembre 2018}}}
+	{\textit{{\large 4 Fevrier 2019}}}
  
 	\end{center}
 \end{titlepage}
@@ -69,25 +69,25 @@
 \newline
 
 Ce projet est conduit dans un cadre pédagogique en tant que projet de troisième année à l'école des Mines de Nancy avec pour tuteurs Marianne Clausel, Dario Rocca et Jérémie Unterberg. Il suit la publication scientifique de Mathias Rupp \textit{Machine Learning for Quantum Mechanics in a Nutshell}.  
-Le but du projet est la reproduction des résultats de cette étude, pour ensuite pouvoir proposer des variations dans le traitement et étudier l'influence sur le résultat à travers les différents indicateurs que nous définirons. \\
-Les codes sont en annexe, mais sont aussi disponible sur le dépôt Github suivant :  \url{https://github.com/pierrzacharias/Projet_3A}.
+Le but du projet est la reproduction des résultats de cette étude, pour ensuite aller plus loin avec d'autres méthodes.
+Les codes du prjet ne sont pas en annexe, mais sont disponible sur le dépôt Github suivant :  \url{https://github.com/pierrzacharias/Projet_3A}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Contexte de l'étude}
 \section{The Harvard Clean Energie Project}
 \paragraph{}
-La publication de Mathias Rupp \textit{Machine Learning for Quantum Mechanics in a Nutshell} s'inscrit dans la dynamique des différents travaux menés autour d'un vaste projet de recherche : \textit{The Harvard Clean Energie Project}. Ce projet vise à concevoir une nouvelle gamme de panneaux solaires révolutionnaire conçus à partir de molécules organiques. Ces panneaux permettrait de s'affranchir des terres rares indispensable actuellement, et d'atteindre de meilleur rendement énergétique (15\% selon une source, et d'être beaucoup plus économique que les panneaux actuels par la facilité de production).\\
-Toute la problématique du projet est de trouver de nouvelle molécules présentant des propriété optimale pour une utilisation sur des panneaux solaire. 
+La publication de Mathias Rupp \textit{Machine Learning for Quantum Mechanics in a Nutshell} s'inscrit dans la dynamique des différents travaux menés autour du vaste projet de recherche : \textit{The Harvard Clean Energie Project}. Ce projet vise à concevoir une nouvelle gamme de panneaux solaires révolutionnaires conçus à partir de molécules organiques. Ces panneaux permettraient de s'affranchir des terres rares indispensables actuellement, et d'atteindre de meilleurs rendements énergétiques (15\%) et d'être beaucoup plus économiques que les panneaux actuels par la facilité de production).\\
+Toute la problématique du projet est de trouver de nouvelles molécules présentant des propriétés optimales pour une utilisation sur des panneaux solaires. 
 Les équipes de Harvard sont donc à la recherche de la molécule présentant les caractéristiques optimales parmi un set de l'ordre de 3.5 millions de molécules.
 \paragraph{}
-Cependant calculer les propriétés des molécules amène à résoudre le problème à N corps, c'est à dire le système d'équation de Schrödinger qui ne comporte pas de solutions analytique. 
-Le développement de la théorie de la DFT (\textit{density functional theory}) dans les années 80 pallie à cette difficulté, et permet de calculer les états d'énergie des molécule à partir de l'état fondamental. 
+Cependant calculer les propriétés des molécules amène à résoudre le problème à N corps, c'est à dire le système d'équation de Schrödinger qui ne comporte pas de solution analytique. 
+Le développement de la théorie de la DFT (\textit{density functional theory}) dans les années 80 pallie à cette difficulté, et permet de calculer les états d'énergies des molécule à partir de l'état fondamental. 
 \paragraph{}
-Mais le temps de calcul pour étudier toute les molécules reste considérable au vu de leur grand nombre. Le \textit{Clean Energie Project} a notamment en 2011 fait appel à un réseaux de crowd computing : ce sont des réseaux de bénévoles mettant à disposition une partie de la puissance de calcul de leur ordinateur pour des projets à grande échelle du monde scientifique nécessitant un temps de calcul hors du communs.  
+Mais le temps de calcul pour étudier toute les molécules reste considérable au vu de leur grand nombre. Le \textit{Clean Energie Project} a notamment en 2011 fait appel à un réseaux de crowd computing : ce sont des réseaux de bénévole mettant à disposition une partie de la puissance de calcul de leur ordinateur pour des projets à grande échelle du monde scientifique nécessitant un temps de calcul hors du communs.  
 \paragraph{}
-L'article que cherchons à reproduire explore de nouvelles techniques novatrices de couplage entre la physique quantique et la prédiction de données pour s'affranchir des limitations de puissance de calculs et explorer le maximum de configuration par extrapolation des résultats. \\
+L'article que cherchons à reproduire explore de nouvelles techniques de couplage entre la physique quantique et la prédiction de données pour s'affranchir des limitations de puissance de calculs et pouvoir explorer le maximum de configuration par extrapolation des résultats. \\
 \paragraph{}
-Nous allons ainsi nous appuyer sur un set de molécules dont les énergies on étés calculé par la théorie de la DFT, et faire de la prédiction pour de nouvelle molécules à partir de ces dernière en employant les méthode de machine learning.
+Nous allons ainsi nous appuyer sur un set de molécules dont les énergies d'atomisations ont étés calculés par la théorie de la DFT, et faire de la prédiction pour de nouvelle molécules à partir de ces dernièrse en employant les méthodes d'apprentissage automatique.
 
 \newpage
 \section{Descripteurs des molécules}
@@ -96,9 +96,9 @@ Nous allons ainsi nous appuyer sur un set de molécules dont les énergies on é
 Nous allons à présent nous intéresser aux données sur lesquelles nous allons effectuer nos prédictions, et quels descripteurs nous allons employer.
 
 \paragraph{}
-Initialement, nos données sont les coordonnées de chaque atomes de la molécule, et  l'énergie d'atomisation de celle-ci. \\
+Initialement, nos données sont les coordonnées de chaque atome des molécules, et  les énergies d'atomisations de celles-ci. \\
 Nos données sont alors contenues dans un fichier au format .xyz.
-Chaque élément du fichier correspondant à une molécule est un tableau avec en première ligne le nombre d'atome de la molécule, en deuxième ligne l'énergie d'atomisation et le numéro de la molécule dans le fichier, et pour chaque ligne ensuite correspond aux coordonnées cartésienne de l'atome dans la molécule. A noter que ces coordonnées sont par rapport à un atome de référence.\\
+Chaque élément du fichier correspondant à une molécule est un tableau avec en première ligne le nombre d'atome de la molécule, en deuxième ligne l'énergie d'atomisation et le numéro de la molécule dans le fichier, et chaque ligne correspond ensuite aux coordonnées cartésienne de l'atome dans la molécule. A noter que ces coordonnées sont par rapport à un atome de référence.\\
 \\
 \begin{tabular}{ l c c c }
    Nombre d'atome &  & & \quad\\
@@ -145,8 +145,8 @@ avec $Z_i$ le numéro atomique correspondant et $R_i$ la position des atomes.\\
 
 
 \paragraph{}
-Dans la pratique, les calculs que nous allons mettre en place pour la prédiction nécessite un nombre constant de descripteur par molécules, même si celle-ci n'ont pas le même nombre d'atomes et donc des matrice de Coulomb de taille variante.
-Nous allons donc remplir pour chaque molécule une matrice de Coulomb de taille égale au nombre maximal d'atome que nous pouvons avoir parmi les molécules que l'on considère ans notre jeu de données, c'est à dire un matrice de taille 23$times$23.
+Dans la pratique, les calculs que nous mettrons en place pour la prédiction nécessiterons un nombre constant de descripteur par molécules, même si celle-ci n'ont pas le même nombre d'atomes et donc des matrice de Coulomb de taille différentes.
+Nous allons donc remplir pour chaque molécule une matrice de Coulomb de taille égale au nombre maximal d'atome que nous pouvons avoir parmi les molécules que l'on considère dans notre jeu de données, c'est à dire une matrice de taille 23$times$23.
 
 \paragraph{}
 Les matrices de Coulomb sont symétriques ce qui fait que nous pouvons garder que la partie inférieure ou supérieure de la matrice pour la prédiction. Nous allons ainsi conserver la partir supérieure de la matrice de Coulomb dans un vecteur de taille $\frac{23\times(23+1)}{2} = 276$.
@@ -166,19 +166,19 @@ Pour C-H :
 Ce qui donne le vecteur ( a$_1$, b$_1$, 0, 0, a$_2$, 0, 0, 0, 0, 0) \\
 Pour H-C-H on retrouve les même termes :
 \begin{tabular}{ l | c c c c }
-	 & C 	& H 	&   &		\\
+	 & C 	& H 	& H  &		\\
 	 \hline
    C & a$_1$ & b$_1$ &  c$_1$ & 0   \\
    H & b$_1$ & a$_2$ &	c$_2$ & 0	\\
    H & c$_1$ & c$_2$ &	a$_3$ & 0	\\
    & 0 & 0 & 0 & 0 \\
     \end{tabular} \\
- Ce qui donne le vecteur ( a$_1$, b$_1$, c$_1$, 0, b$_1$, a$_2$, c$_2$,0 ,a$_3$, 0, 0)
+ Ce qui donne le vecteur ( a$_1$, b$_1$, c$_1$, 0, b$_1$, a$_2$, c$_2$,0 ,a$_3$, 0)
  \paragraph{}
-On voit dans cet exemple l'importance de conserver les termes nuls lors du remplissage du vecteur, pour que les termes égaux correspondant à des atomes dans des situations semblables soient positionnée à la même place, notamment les termes diagonaux qui ne dépendent que de l'atome lui-même. Sinon les modèle que nous mettrons en place pour la prédiction seront faussés.
+On voit dans cet exemple l'importance de conserver les termes nuls lors du remplissage du vecteur, pour que les termes égaux correspondants à des atomes dans des situations semblables soient positionnés à la même place, notamment les termes diagonaux qui ne dépendent que de l'atome lui-même. Sinon les modèles que nous mettrons en place pour la prédiction seront faussés.
 
 \paragraph{}
-De plus comme nous l'avons énoncé,les coordonnées des atomes sont déterminées par rapport à un atome de référence ce qui fait que les matrices de coulomb ne sont pas insensibles aux inversions de ligne pour les modèle de régression. Pour que toute les matrices soient équivalents de ce point de vue la, nous trions les lignes de la matrice par norme descendante, en inversant les lignes correspondante pour conserver la symétrie de la matrice avant de prendre la partie diagonale supérieure.\\
+De plus comme nous l'avons énoncé ,les coordonnées des atomes sont déterminées par rapport à un atome de référence ce qui fait que les matrices de coulomb ne sont pas insensibles aux inversions de ligne pour les modèle de régression. Pour que toute les matrices soient équivalentes de ce point de vue la, nous trions les lignes de la matrice par norme descendante, en inversant les lignes correspondantes pour conserver la symétrie de la matrice avant de prendre la partie diagonale supérieure.\\
 
 \paragraph{}
 Sur le Github \url{https://github.com/pierrzacharias/Projet_3A} la mise en 
@@ -190,7 +190,10 @@ dans le fichier \textit{matrice{$\_$}coulomb.txt}
 \chapter{Modèle de prédiction : Machine learning}
 \label{C1}
 %%%%%%%%%%%%%%%%%%%%%%%%% sectioon 1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\paragraph{}
+Nous allons à présent introduire toute la théorie des outils d'apprentissage automatique que nous mettrons en œuvre pour la prédiction.
 \section{Support Vector Machines methods (SVM)}
+\paragraph{}
 \paragraph{}
 Nous considérons les données : $(x_{i},\ y_{i})_{1 \leqslant i \leqslant N},\ x_{i} \in \mathbb{R}, \ y_{i} \in \{-1,\ 1\}$.
 \paragraph{}
@@ -207,7 +210,7 @@ Le probléme SVM vise à séparer les données  en deux classes $+1$ et $-1$ à 
 	%\begin{subfigure}[b]{0.3\textwidth}
 		\includegraphics[height = 5cm, keepaspectratio]{graphes/SVM_donnee.png}
 		\includegraphics[height = 5cm, keepaspectratio]{graphes/SVM_separee.png}
-		\caption{sparation de données générées make$\_$blobs du package dataset et séparation de l'espace en deux classe par la méthode des vecteurs support à l'aide de la fonction SVC du package sklearn. Les étoiles sont les vecteurs supports.}
+		\caption{séparation de données générées make$\_$blobs du package dataset et séparation de l'espace en deux classes par la méthode des vecteurs support à l'aide de la fonction SVC du package sklearn. Les étoiles sont les vecteurs supports.}
 			%\end{subfigure}
 	\end{center}
 \end{figure}
@@ -224,7 +227,7 @@ Pour un hyperplan $H$ = $\{x$ | $w^T x + b =0\}$, on a :
 	\centering	
 	%\begin{subfigure}[b]{0.3\textwidth}
 		\includegraphics[height =5cm, keepaspectratio]{graphes/svm05.png}
-		\caption{Illustratin de la distance à l'Hyperplan H.[Cours Cnam RCP209] }
+		\caption{Illustration de la distance à l'Hyperplan H.[Cours Cnam RCP209] }
 			%\end{subfigure}
 	\end{center}
 \end{figure}
@@ -233,18 +236,18 @@ Pour un hyperplan $H$ = $\{x$ | $w^T x + b =0\}$, on a :
 	\centering	
 	%\begin{subfigure}[b]{0.3\textwidth}
 		\includegraphics[height =5cm, keepaspectratio]{graphes/svm04.png}
-		\caption{Le meilleur hyperplan parmi tous ceux compatible est, comme on le voit ici, celui qui passe au \og millieu \fg des données, et donc celui qui maximise la marge. C’est le séparateur de marge maximale.[Cours Cnam RCP209]}
+		\caption{Le meilleur hyperplan parmi tous ceux compatible est, comme on le voit ici, celui qui passe au \og milieu \fg des données, et donc celui qui maximise la marge. C'est le séparateur de marge maximale.[Cours Cnam RCP209]}
 			%\end{subfigure}
 	\end{center}
 \end{figure}
 \paragraph{}
-On définit alors les vecteurs supports comme les éléments les plus proches de part et d'autre de l'hyperplan de séparation qui déterminent la marge (Figure 2.4)
+On définit alors les vecteurs supports comme les éléments les plus proches de part et d'autre de l'hyperplan de séparation. On voit intuitivement qu'ils déterminent la marge (Figure 2.4)
 \begin{figure}[!h]
 	\begin{center}
 	\centering	
 	%\begin{subfigure}[b]{0.3\textwidth}
 		\includegraphics[height =5cm, keepaspectratio]{graphes/svm07.png}
-		\caption{Le meilleur hyperplan parmi tous ceux compatible est, comme on le voit ici, celui qui passe au \og millieu \fg des données, et donc celui qui maximise la marge. C’est le séparateur de marge maximale.[Cours Cnam RCP209]}
+		\caption{Illustration de l'hyperplan à marge maximale et des vecteur supports associés.[Cours Cnam RCP209]}
 			%\end{subfigure}
 	\end{center}
 \end{figure}
@@ -253,7 +256,8 @@ On peut ainsi exprimer la marge en fonction des vecteurs supports $x_{vs}$:
 \[ 
 2 \times \text{Marge} = 2 \times d(x,\ H) = \frac{|w^T x_{vs} + b|}{||w||}
 \]
-Nous prendrons dans la suite la quantité 2$\times$ Marge car cela ne change pas le problème de minimisation et simplifie les expressions. On impose pour les vecteur supports $|w^T x_{vs} + b| = 1$. La marge devient donc :
+\paragraph{}
+Nous prendrons dans la suite la quantité 2$\times$Marge car cela ne change pas le problème de minimisation et simplifie les expressions. On impose pour les vecteur supports $|w^T x_{vs} + b| = 1$. La marge devient donc :
 \[ \text{Marge} = \frac{2}{||w||} \]
 
 Sous l'hypothèse qu'il existe un hyperplan qui sépare nos données, trouver l'hyperplan qui maximise la marge revient à résoudre le problème suivant:
@@ -273,7 +277,7 @@ On utilise le Lagrangien des conditions de Karush, Kuhn et Tucker, qui s'exprime
 \[
 L(w,b,\lambda_{i}) = \frac{1}{2}||w||^{2} - \sum{\lambda_{i}( y_i (w \cdot x_i + b)-1)}
 \]
-Le problème de minimisation trouve sa solution pour les paramètres ($w$, $b$, $\lambda$ tels que: 
+Le problème de minimisation trouve sa solution pour les paramètres ($w$, $b$, $\lambda$) tels que: 
 \[
 \left\{
 	\begin{array}{cc}		
@@ -312,15 +316,15 @@ La fonction de décision correspondant à la solution du problème de maximisati
 \]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Données non-linéairement séparables : Astuce du noyaux.}
+\section{Données non-linéairement séparables : Astuce du noyau.}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \paragraph{}
-Dans la section précédente nous avons considéré des données linéairement séparable,
-nous allons à présent nous intéresser au cas où il n'existe pas d'hyperplan qui puissent séparer nos données. L'idée principale de cette section pour pouvoir séparer nos données et de passer dans un base de dimension supérieure telle que nos données deviennent linéairement séparables comme cela est illustré sur la figure 2.5.
+Dans la section précédente nous avons considéré des données linéairement séparables,
+nous allons à présent nous intéresser au cas où il n'existe pas d'hyperplan qui puissent séparer nos données. L'idée principale de cette section est de pour pouvoir séparer nos données, nous passons dans un espace de dimension supérieure tel que nos données deviennent linéairement séparables comme cela est illustré sur la figure 2.6.
 
 \paragraph{}
-Pour ce faire nous allons remplacer le produit scalaire $x^T x$ dans l'expression de $f$ par une fonction dite \og noyaux \fg : $K : \xi \times \xi \rightarrow \mathbb{R}$. \\
-On donne quelques exemple de noyaux courant en figure 2.6. Logiquement, comme nous cherchons à séparer les données, les noyaux prennent des valeurs importante pour des données proches.
+Pour ce faire nous allons remplacer le produit scalaire $x^T x$ dans l'expression de $f$ par une fonction dite \og noyau \fg : $K : \xi \times \xi \rightarrow \mathbb{R}$. \\
+On donne quelques exemple de noyau courant en figure 2.6. Logiquement, comme nous cherchons à séparer les données, les noyaux prennent des valeurs importante pour des données proches.
 
 \begin{figure}[!h]
 	\begin{center}
@@ -344,7 +348,7 @@ Le théorème de Mercer nous assure ainsi de l'existence d'un espace de Hilbert 
 	\begin{center}
 	%\begin{subfigure}[b]{0.3\textwidth}
 		\includegraphics[height = 3cm, keepaspectratio]{graphes/separation.png}
-		\caption{Astuce du noyaux : projeter les données dans un espace de dimension plus grande, où elles deviennent séparables linéairement.[Mathias Rupp\textit{Machine Learning for Quantum Mechanics in a Nutshell}]}
+		\caption{Astuce du noyau : projeter les données dans un espace de dimension plus grande, où elles deviennent séparables linéairement.[Mathias Rupp\textit\textit{•}]}
 			%\end{subfigure}
 	\end{center}
 \end{figure}
@@ -353,13 +357,13 @@ L'estimateur devient ainsi en effectuant le produit scalaire sur l'ensemble des 
 \[
 f(\overset{\sim}{x}) = \sum_{i = 1}^{n}{\alpha_i \text{K}(x_i , \overset{\sim}{x})}
 \]	
-L'intérêt de la méthode est que l'on change d'espace par la fonction $\phi$, mais que l'on à en pratique pas à calculer la fonction $\phi$ : on calcule directement la fonction $K$ avec le produit scalaire.
+L'intérêt de la méthode est que l'on change d'espace par la fonction $\phi$, mais que l'on a en pratique pas à calculer la fonction $\phi$ : on calcule directement la fonction $K$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
 \section{Variable d'écart}	
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Nous allons à présent autoriser que certain point soient mal classés par l'hyperplan	pour simplifier l'hyperplan de séparation et éviter des problème d'overfitting. 
+Nous allons à présent autoriser que certains points soient mal classés par l'hyperplan	pour simplifier l'hyperplan de séparation et éviter des problème de sur-apprentissage.
 \begin{figure}[!h]
 	\begin{center}
 	%\begin{subfigure}[b]{0.3\textwidth}
@@ -413,7 +417,7 @@ La regression ridge consiste à ajouter une fonction de coût avec une norme $|.
 \paragraph{}
 L'ajout de cette pénalisation dans une régression permet par la réduction des coefficients de palier à des descripteur corrélés. Cela permet également en introduisant un biais de réduire la variance, et ainsi de réduire également l'erreur totale du modèle comme somme du biais et de la variance.
 \paragraph{}
-En reprenant les parties précédentes avec l'astuce du noyaux la fonction $f$ devient $f(\overset{\sim}{x}) = \sum_{i = 1}^{n}{\alpha_i \text{K}(x_i , \overset{\sim}{x})}$,et le problème de minimisation devient 
+En reprenant les parties précédentes avec l'astuce du noyau la fonction $f$ devient $f(\overset{\sim}{x}) = \sum_{i = 1}^{n}{\alpha_i \text{K}(x_i , \overset{\sim}{x})}$,et le problème de minimisation devient 
 \[
 \underset{\alpha \in \mathbb{R}^{n}}{\text{arg min}}\sum{(f(x_i) - y_i)^{2}} +  \lambda ||f||_H^{2}
 \]
@@ -422,12 +426,12 @@ On peut ainsi écrire matriciellement ce problème :
 \[
 	\underset{\alpha \in \mathbb{R}^{n}}{\text{arg min}}<K \alpha - y , K 	\alpha -y > + \lambda \alpha^{T} K \alpha 
 \]
-$\text{où } K \in \mathbb{R}^{n \times n} \text{ est la matrice du 			noyaux} \quad K_{i,j} = K(x_i, x_j)$. \\
+$\text{où } K \in \mathbb{R}^{n \times n} \text{ est la matrice du 			noyau} \quad K_{i,j} = K(x_i, x_j)$. \\
 On trouve directement une solution analytique en prenant le gradient à 0 :
 \[
 \alpha	=(K + \lambda I)^{-1}y, \quad \text{avec $I$ la matrice identité}
 \]
-On peut donc directement exprimer les coefficients $\alpha_i$ à partir du coéfficent de pénalisation $\lambda$ et c'est ce que nous faisons dans la suite.
+On peut donc directement exprimer les coefficients $\alpha_i$ à partir du coefficient de pénalisation $\lambda$ et c'est ce que nous faisons dans la suite.
 
 
 %%%%%%%%%%%%%%%%%%%%% chapitr 2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -435,7 +439,7 @@ On peut donc directement exprimer les coefficients $\alpha_i$ à partir du coéf
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Évaluations des modèles}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Nous allons dans cette partie expliciter les outils que nous allons utiliser pour évaluer les performances des modèles en comparant les prédictions $f(x_i)$ et les données $y_i$. Nous utilisons des fonctions de coût qui représentent l'erreur du modèle, on cherche à les avoir les plus petites possible. 
+Nous allons dans cette partie expliciter les outils que nous allons utiliser pour évaluer les performances des modèles en comparant les prédictions $f(x_i)$ et les données $y_i$. Nous utilisons des fonctions de coût qui représentent l'erreur du modèle, on cherche à les avoir donc les plus petites possible. 
 Nous pouvons d'abord définir la somme des résidus au carré RSS (residual sum of squares) : 
 \[
 \text{RSS} = \sum_{i=}^n {(y_i - f(x_i))^2}
@@ -455,7 +459,7 @@ L'intérêt d'utiliser deux fonctions de coût différentes et qu'elles ne donne
 \paragraph{}
 Nous utilisons également le coefficient de corrélation $R^2$
 définis par 
-\[ (1 - R^2) \sum_{i=1}^n {(\overline{y} - y_i)^2} \]
+\[ (1 - R^2) \sum_{i=1}^n {(\overline{y} - y_i)^2} = \sum_{i=}^n {(y_i - f(x_i))^2} \]
 où $\overline{y}$ est la moyenne des observation $y$.
 
 \paragraph{}
@@ -471,51 +475,51 @@ Nous pouvons interpréter $R^2$ comme la proportion de la variance de nos donné
 \paragraph{}
 Nous explicitons les différents noyaux $K$ que nous allons utiliser dans nos modélisations.\\
 
-\paragraph{Noyaux Gaussien} 
-Nous définissons le noyaux gaussien définis par :
+\paragraph{Noyau Gaussien} 
+Nous définissons le noyau gaussien définis par :
 \[ 
 	K(x,z) = \exp{- \frac{||x-z||_{2}^2}{2\sigma^2}} \, \quad \sigma \geqslant 0 
 \]
-Ce noyaux comporte un hyperparamètre $\sigma$ à déterminer.
+Ce noyau comporte un hyperparamètre $\sigma$ à déterminer.
 \begin{figure}[!h]
 	\begin{center}
 	%\begin{subfigure}[b]{0.3\textwidth}
 		\includegraphics[height = 5cm, keepaspectratio]{graphes/noyaux_gaussien.png}
-		\caption{noyaux gaussien avec $\sigma$ = 0.5 ($-$ $-$), 1 (---), 2 ($\cdot\cdot\cdot$) [Mathias Rupp \textit{Machine Learning for Quantum Mechanics in a Nutshell}]}
+		\caption{noyau gaussien avec $\sigma$ = 0.5 ($-$ $-$), 1 (---), 2 ($\cdot\cdot\cdot$) [Mathias Rupp \textit{Machine Learning for Quantum Mechanics in a Nutshell}]}
 			%\end{subfigure}
 	\end{center}
 \end{figure}
 
-\paragraph{Noyaux linéaire} Nous définissons le noyaux linéaire par :
+\paragraph{Noyau linéaire} Nous définissons le noyau linéaire par :
 \[ 
 	K(x,z) = \langle x,z\rangle
 \]
-Ce noyaux ne fait pas subir de changement de dimensions, il fait comme si nous n'appliquions pas ka méthode du noyaux.
+Ce noyau ne fait pas subir de changement de dimensions, il fait comme si nous n'appliquions pas la méthode du noyau.
 
-\paragraph{Noyaux Lagrangien}
-Nous définissons le noyaux gaussien définis par :
+\paragraph{Noyau Lagrangien}
+Nous définissons le noyau gaussien définis par :
 \[ 
 	K(x,z) = \exp{- \frac{||x-z||_{1}}{\sigma}} \, \quad \sigma \geqslant 0 
 \]
-Ce noyaux comporte un hyperparamètre $\sigma$ à déterminer.
+Ce noyau comporte un hyperparamètre $\sigma$ à déterminer.
 \begin{figure}[!h]
 	\begin{center}
 	%\begin{subfigure}[b]{0.3\textwidth}
 		\includegraphics[height = 5cm, keepaspectratio]{graphes/noyaux_laplacien.png}
-		\caption{noyaux laplacien avec $\sigma$ = 0.5 ($-$ $-$), 1 (---), 2 ($\cdot\cdot\cdot$) [Mathias Rupp \textit{Machine Learning for Quantum Mechanics in a Nutshell}]}
+		\caption{noyau laplacien avec $\sigma$ = 0.5 ($-$ $-$), 1 (---), 2 ($\cdot\cdot\cdot$) [Mathias Rupp \textit{Machine Learning for Quantum Mechanics in a Nutshell}]}
 			%\end{subfigure}
 	\end{center}
 \end{figure}
 
 \paragraph{Hyperparamètres}
-Nous voyons que nous avons globalement deux hyperparmètre à determiner dans  les modèle utilisant la kernel regression ridge :
+Nous voyons que nous avons globalement deux hyperparmètres à déterminer dans  les modèle utilisant la kernel regression ridge :
 \begin{enumerate}
  	\item $\lambda$ de la ridge régression
-    \item $\sigma$ du noyaux gaussien
+    \item $\sigma$ du noyau gaussien
 \end{enumerate}
 Nous n'utilisons pas la marge permissive avec une pénalisation ajustable décrite dans la partie 2.3.
 \paragraph{}
-Nous allons ainsi dans la recherche du meilleur modèle pour prédire les énergie d'atomisation des molécules nous  particulièrement à déterminer le meilleur couple d'hyperparamètres $(\lambda, \sigma)$ sur un ensemble $\Omega$ en utilisant les outils d'estimation de l'erreur d'écrits dans la section 3.1. 
+Nous allons rechercher le meilleur modèle pour prédire les énergies d'atomisations des molécules ce qui revient à déterminer le meilleur couple d'hyperparamètres $(\lambda, \sigma)$ sur un ensemble $\Omega$ en utilisant les outils d'estimation de l'erreur d'écrits dans la section 3.1. 
 
 %%%%%%%%%%%%%%%%%% section 2%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{bases d'entraînement et de test des modèles}
@@ -526,14 +530,14 @@ Nous allons détailler notre manière de procéder visant à obtenir le meilleur
 \paragraph{}
 Tout d'abord nous allons séparer notre dataset en une base d'apprentissage sur laquelle entrainer nos modèles, et une base de test où nous évaluerons les performances des modèle avec les outils décrits section 3.1. 
 \paragraph{}
-Notre dataset contient un peu plus de 7000 molécules, nous le partitionnons ainsi en un training set de 1000 molécules, et un testing set contenant le reste des molécules.
+Notre dataset contient un peu plus de 7000 molécules, nous le partitionnons  en un training set de 1000 molécules, et un testing set contenant le reste des molécules.
 \paragraph{}
-Nous décomposons encore cette base d'entrainement training set de taille 1000 en une base de taille 900 pour le choix des hyperparamètres et une base de taille 100 sur laquelle nous allons vérifier la pertinence du choix de nos hyperparamètres avant de passer au modèle global, pour se prémunir contre des problème d'overfitting.
+Nous décomposons encore cette base d'entrainement training set de taille 1000 en une base de taille 900 pour le choix des hyperparamètres et une base de taille 100 sur laquelle nous allons vérifier la pertinence du choix de nos hyperparamètres avant de passer au modèle global, pour se prémunir contre des problème de sur-apprentissage.
 \paragraph{}
 Après sélections de nos hyperparamètres, nous entrainons le modèle final sur l'ensemble du training set de 1000 molécules et nous confrontons nos prédictions aux molécules du testing set.
 
 \paragraph{} 
-Par ailleurs si nous nous intéressons à la répartition du nombre d'atome qui ne sont pas des atomes d'hydrogène par molécules dans notre dataset, nous pouvons voir sur la Figure 3.3 que cette répartition est trés inégale. En pratique nous prendrons toutes les molécules qui comprennent moins de 5 non-H atomes dans la base d'apprentissage training set car leur nombre est trés réduit (il y en a 59), même si cela augmente l'erreur de notre modèle car nos prédictions se font alors uniquement sur des molécules comportant plus de 5 atomes qui ne sont pas des atomes d'hydrogènes.
+Par ailleurs si nous nous intéressons à la répartition du nombre d'atome qui ne sont pas des atomes d'hydrogènes par molécules dans notre dataset, nous pouvons voir sur la Figure 3.3 que cette répartition est trés inégale. En pratique nous prendrons toutes les molécules qui comprennent moins de 5 non-H atomes dans la base d'apprentissage training set car leur nombre est trés réduit (il y en a 59), même si cela augmente l'erreur de notre modèle car nos prédictions se font alors uniquement sur des molécules comportant plus de 5 atomes qui ne sont pas des atomes d'hydrogènes.
 \begin{figure}[!h]
 \begin{center}
 		\includegraphics[height = 4.5cm, keepaspectratio]{graphes/non_H_atom.png}
@@ -545,34 +549,94 @@ Par ailleurs si nous nous intéressons à la répartition du nombre d'atome qui 
 \section{Résultats}
 Sur le Github \url{https://github.com/pierrzacharias/Projet_3A}, les simulations effectuées dans cette section sont réalisées dans \textit{implementation{$\_$}KKR.py} dans le fichier \textit{Methode{$\_$}Kernel{$\_$}Ridge{$\_$}Regression/}. \\
 Les résultats des simulations sont stockés dans des fichiers texte tels que \\
-\textit{Resultat{$\_$}RMSE{$\_$}RBF.txt} (pour l'erreur RMSE avec le noyaux gaussien), et la mise en forme des données pour l'affichage et réalisé dans  \textit{lecture{$\_$}donnee.py}.
+\textit{Resultat{$\_$}RMSE{$\_$}RBF.txt} (pour l'erreur RMSE avec le noyau gaussien), et la mise en forme des données pour l'affichage et réalisé dans  \textit{lecture{$\_$}donnee.py}.
 
-\paragraph{Résultats pour le noyaux gaussien}
+\paragraph{Résultats pour le noyau gaussien}
 On affiche les résultats des calculs des erreurs sur une grille $(\lambda,\gamma) = [-30,-10]^2$. \\
-On fait la distinction entre $\sigma$ utilisé dans l'article, et $\gamma$ utilisé dans le code avec $\gamma = \frac{1}{2\sigma^2}$
+On fait la distinction entre $\sigma$ utilisé dans l'article, et $\gamma$ utilisé dans le code avec $\gamma = \frac{1}{2\sigma^2}$, ce qui fait que si on compare les graphiques d'erreurs avec ceux de l'article de M. Rupp, les erreurs sont inversées sur l'axe des abscisses.
 
 	\begin{figure}[!h]	
 		\begin{center}
-		\includegraphics[height = 5cm, keepaspectratio]{graphes/resultat_RBF_RMSE.png}
-		\includegraphics[height = 5cm, keepaspectratio]{graphes/resultat_RBF_MAE.png}
-		\includegraphics[height = 5cm, keepaspectratio]{graphes/resultat_RBF_R2.png}
-	\caption{Résultat des modèles pour un noyau gaussien, le point noir en [-13,-29] correspond au minimum de l'erreur de l'erreur RMSE sur la grille}
+		\includegraphics[height = 5.2cm, keepaspectratio]{graphes/resultat_RBF_RMSE.png}
+		\includegraphics[height = 5.2cm, keepaspectratio]{graphes/resultat_RBF_MAE.png}
+		\includegraphics[height = 5.2cm, keepaspectratio]{graphes/resultat_RBF_R2.png}
+	\caption{Résultat des modèles pour un noyau gaussien, les points noirs correspondent au minimum de l'erreur}
 		\end{center}
 	\end{figure}
-\paragraph{}
+
+
+\paragraph{Résultats pour le noyau Laplacien : }
+De même sur une grille $[-40,-20]\times[-30,-5]$, avec $\gamma = \frac{1}{\sigma}$
+	\begin{figure}[!h]	
+		\begin{center}
+		\includegraphics[height = 5.2cm, keepaspectratio]{graphes/resultat_Lapla_RMSE.png}
+		\includegraphics[height = 5.2cm, keepaspectratio]{graphes/resultat_Lapla_MAE.png}
+		\includegraphics[height = 5.2cm, keepaspectratio]{graphes/resultat_Lapla_R2.png}
+	\caption{Résultat des modèles pour un noyau laplacien, les point noir correspondent au minimum de l'erreur}
+		\end{center}
+	\end{figure}
+Les séparation pour le $R^2$ sont mal placés, cela est du au fait qu'il converge très vite vers la valeur $1$.
+
+\paragraph{Synthèse des résultats}
 Nous regroupons les résultats des erreurs pour la prédiction sur le jeu de données complet : \\
 \begin{center}
 \begin{tabular}{ l| c c c }
 
    Erreur utilisée  & RMSE & MAE & R$^2$ \\
    \hline
-   KRR avec noyaux gaussien & 10.3356 & 11.0503 & 0.9977\\
-   KRR avec noyaux laplacien  & 10.3356 & 11.0503 & 0.9977\\
+   KRR avec noyau gaussien & 9.6371 & 7.6962 & 0.9977\\
+   KRR avec noyau laplacien  & 5.4019 & 3.4555 & 0.9993\\
   \end{tabular}
   \end{center}
+\paragraph{}
+Je ne présente pas mes résultats pour le noyau linéaire car ceux-ci ne présentent pas d'intérêt particulier par-rapport aux méthodes à noyaux classiques.
+
+\paragraph{}
+En comparant avec la publication de Mathias Rupp, nous observons des résultats d'erreurs légèrement meilleurs sur la prédiction sur l'ensemble du jeux de données. 
   
-  
-  
-  
-  
+Nous pouvons afficher les prédictions par rapport aux énergie d'atomisation calculées : 
+
+\begin{figure}[!h]	
+		\begin{center}
+		\includegraphics[height = 8cm, keepaspectratio]{graphes/affichage_prediction.png}
+	\caption{Affichage des prédiction par rapport aux énergie d'atomisations, et de la courbe $y = x$}
+		\end{center}
+	\end{figure}
+	
+Nous constatons que les prédictions restent très près de la courbe $y = x$, ce qui nous confirme dans la pertinence du modèle que nous avons développé.
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Perspectives}
+Dans ce chapitre nous explorons différentes perceptives du projet que nous n'avons pas mit en oeuvre.
+\section{Random Forest}
+\paragraph{}
+Après avoir reproduit les résultats escomptés, nous aurions pu concevoir des modèles de prédiction différents des méthodes à noyaux et notamment utiliser des Random Forest. J'ai effectué une recherche de modèle utilisant des Random Forest trop superficielle pour que je la présente ici.
+Les principaux paramètres à considérer dans ces modèle sont la taille des arbres et le nombre de nœuds. Les modèle que j'ai construis m'ont permis d'atteindre une erreur RMSE avec la prédiction sur le jeu de données complet de 14 pour 90 arbres avec 25 nœuds. Cela est supérieur aux erreurs que nous avons obtenus avec les méthodes à noyaux, mais cela reste un modèle assez grossier et nous pouvons probablement obtenir de meilleurs erreurs en optimisant les paramètres du modèle.
+
+\section{Descripteurs Chimique}
+\paragraph{}
+Un autre axe de développement du projet afin d'améliorer la prédiction est d'employer de nouveaux descripteurs.
+En effet les matrice de Coulombs présentent l'avantage de pouvoir reconstituer les molécules, mais ne caractérise pas les groupes chimiques caractéristiques comme par exemple -OH qui identifient un comportement particulier , ce qui va donc influencer les niveaux d'énergies.
+Typiquement, les chaîne carbonées sont classées en : méthane CH$_4$,butane  C$_4$H$_10$,éthylène C$_2$H$_4$, benzène C$_6$H$_6$, éthanol C$_2$H$_6$O, et choline C$_5$NH$_{14}$O.
+	
+\newpage
+%======================== Conclusion ==============================
+\textbf{\Huge Conclusion:} \\
+\paragraph{}
+Nous pouvons conclure que ce projet à réalisé ces objectif initiaux de mettre en œuvre les méthodes de régression à noyaux pour reproduire les résultats de la publication scientifique de Mathias Rupp. \\
+Cependant nous ne somme pas allé plus loin que l'article en explorant de nouvelles méthodes d'apprentissage automatique comme les Random Forests.
+
+\newpage
+\Large \textbf{Bibliographie} \normalsize \\
+\paragraph{}
+\vspace{2cm}
+$[1]$ M. Rupp. Int. J. Quantum Chem. 2015, 115, 1058–1073. DOI: 10.1002/qua.24954
+
+\paragraph{}
+$[2]$Cours du Cnam Paris (code Cnam RCP209) 
+\textit{Apprentissage, réseaux 
+de neurones et modèles graphiques} disponible en libre accès sur 
+\url{cedric.cnam.fr/vertigo/Cours/ml2/}
+\paragraph{}
+$[3]$T. Hastie, R. Tibshirani, J. Friedman, The Elements of Statistical Learning. Data Mining, Inference, and Prediction, 2nd ed., Springer: New York, 2009.
 \end{document}

@@ -90,7 +90,7 @@ def MAE(y_true, y_pred): return metrics.mean_absolute_error(y_true, y_pred)
 
 
 
-grid_n_estimators = range(1,100,5)
+grid_n_estimators = range(1,100,10)
 grid_max_depth = range(5,50,5)
 
 

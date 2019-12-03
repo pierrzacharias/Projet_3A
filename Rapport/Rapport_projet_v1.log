@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2017.11.26)  5 FEB 2019 04:20
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2017.11.26)  5 FEB 2019 13:06
 entering extended mode
 **./Rapport_projet_v1.tex
 (Rapport_projet_v1.tex
@@ -823,21 +823,21 @@ G,.JBIG2,.JB2,.eps]
 )
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-<graphes/mines_nancy.png, id=55, 313.17pt x 161.60374pt>
+<graphes/mines_nancy.png, id=67, 313.17pt x 161.60374pt>
 File: graphes/mines_nancy.png Graphic file (type png)
 <use graphes/mines_nancy.png>
 Package pdftex.def Info: graphes/mines_nancy.png  used on input line 34. on inp
 ut line 34.
 Package pdftex.def Info: Requested size: 110.27536pt x 56.9055pt on input line 
 34.
-<graphes/elie_cartan.png, id=57, 332.24126pt x 152.57pt>
+<graphes/elie_cartan.png, id=69, 332.24126pt x 152.57pt>
 File: graphes/elie_cartan.png Graphic file (type png)
 <use graphes/elie_cartan.png>
 Package pdftex.def Info: graphes/elie_cartan.png  used on input line 37. on inp
 ut line 37.
 Package pdftex.def Info: Requested size: 123.92097pt x 56.9055pt on input line 
 37.
-<graphes/univ_lorraine.png, id=58, 339.2675pt x 149.55875pt>
+<graphes/univ_lorraine.png, id=70, 339.2675pt x 149.55875pt>
 File: graphes/univ_lorraine.png Graphic file (type png)
 <use graphes/univ_lorraine.png>
 Package pdftex.def Info: graphes/univ_lorraine.png  used on input line 40. on i
@@ -958,164 +958,233 @@ Underfull \hbox (badness 10000) in paragraph at lines 181--182
 
 [7]
 Chapitre 2.
-<graphes/SVM_donnee.png, id=140, 462.528pt x 345.4506pt>
+<graphes/SVM_donnee.png, id=155, 462.528pt x 345.4506pt>
 File: graphes/SVM_donnee.png Graphic file (type png)
 <use graphes/SVM_donnee.png>
-Package pdftex.def Info: graphes/SVM_donnee.png  used on input line 208. on inp
-ut line 208.
+Package pdftex.def Info: graphes/SVM_donnee.png  used on input line 211. on inp
+ut line 211.
 Package pdftex.def Info: Requested size: 190.4846pt x 142.26378pt on input line
- 208.
-<graphes/SVM_separee.png, id=141, 462.528pt x 345.4506pt>
+ 211.
+<graphes/SVM_separee.png, id=156, 462.528pt x 345.4506pt>
 File: graphes/SVM_separee.png Graphic file (type png)
 <use graphes/SVM_separee.png>
-Package pdftex.def Info: graphes/SVM_separee.png  used on input line 209. on in
-put line 209.
+Package pdftex.def Info: graphes/SVM_separee.png  used on input line 212. on in
+put line 212.
 Package pdftex.def Info: Requested size: 190.4846pt x 142.26378pt on input line
- 209.
-[8
+ 212.
 
- <./graphes/SVM_donnee.png> <./graphes/SVM_separee.png>]
-<graphes/svm05.png, id=153, 642.4pt x 507.91626pt>
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<graphes/svm05.png, id=157, 642.4pt x 507.91626pt>
 File: graphes/svm05.png Graphic file (type png)
 <use graphes/svm05.png>
-Package pdftex.def Info: graphes/svm05.png  used on input line 226. on input li
-ne 226.
+Package pdftex.def Info: graphes/svm05.png  used on input line 229. on input li
+ne 229.
 Package pdftex.def Info: Requested size: 179.92958pt x 142.26378pt on input lin
-e 226.
-<graphes/svm04.png, id=154, 577.49083pt x 466.7156pt>
+e 229.
+<graphes/svm04.png, id=158, 577.49083pt x 466.7156pt>
 File: graphes/svm04.png Graphic file (type png)
 <use graphes/svm04.png>
-Package pdftex.def Info: graphes/svm04.png  used on input line 235. on input li
-ne 235.
+Package pdftex.def Info: graphes/svm04.png  used on input line 238. on input li
+ne 238.
 Package pdftex.def Info: Requested size: 176.0331pt x 142.26378pt on input line
- 235.
+ 238.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<graphes/svm07.png, id=155, 474.77374pt x 319.69438pt>
+<graphes/svm07.png, id=159, 474.77374pt x 319.69438pt>
 File: graphes/svm07.png Graphic file (type png)
 <use graphes/svm07.png>
-Package pdftex.def Info: graphes/svm07.png  used on input line 246. on input li
-ne 246.
+Package pdftex.def Info: graphes/svm07.png  used on input line 249. on input li
+ne 249.
 Package pdftex.def Info: Requested size: 211.27727pt x 142.26378pt on input lin
-e 246.
+e 249.
+[8
+
+]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[9 <./graphes/svm05.png (PNG copy)>] [10 <./graphes/svm04.png (PNG copy)> <./gr
-aphes/svm07.png>]
-<graphes/exemple_noyaux.png, id=171, 987.2082pt x 489.2679pt>
+[9 <./graphes/SVM_donnee.png> <./graphes/SVM_separee.png> <./graphes/svm05.png 
+(PNG copy)>] [10 <./graphes/svm04.png (PNG copy)> <./graphes/svm07.png>]
+[11]
+<graphes/exemple_noyaux.png, id=194, 987.2082pt x 489.2679pt>
 File: graphes/exemple_noyaux.png Graphic file (type png)
 <use graphes/exemple_noyaux.png>
-Package pdftex.def Info: graphes/exemple_noyaux.png  used on input line 328. on
- input line 328.
+Package pdftex.def Info: graphes/exemple_noyaux.png  used on input line 332. on
+ input line 332.
 Package pdftex.def Info: Requested size: 287.03622pt x 142.26378pt on input lin
-e 328.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[11]
-<graphes/separation.png, id=178, 490.83376pt x 103.38625pt>
+e 332.
+<graphes/separation.png, id=195, 490.83376pt x 103.38625pt>
 File: graphes/separation.png Graphic file (type png)
 <use graphes/separation.png>
-Package pdftex.def Info: graphes/separation.png  used on input line 346. on inp
-ut line 346.
+Package pdftex.def Info: graphes/separation.png  used on input line 350. on inp
+ut line 350.
 Package pdftex.def Info: Requested size: 405.24991pt x 85.35826pt on input line
- 346.
-<graphes/ecart.png, id=179, 666.99188pt x 463.7325pt>
+ 350.
+LaTeX Font Info:    Try loading font information for OMS+lmr on input line 351.
+
+ ("C:\Program Files\MiKTeX 2.9\tex\latex\lm\omslmr.fd"
+File: omslmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Font shape `OMS/lmr/m/n' in size <12> not available
+(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 351.
+ [12 <./graphes/exemple_noyaux.png> <./graphes/separation.png>]
+<graphes/ecart.png, id=208, 666.99188pt x 463.7325pt>
 File: graphes/ecart.png Graphic file (type png)
 <use graphes/ecart.png>
-Package pdftex.def Info: graphes/ecart.png  used on input line 366. on input li
-ne 366.
+Package pdftex.def Info: graphes/ecart.png  used on input line 370. on input li
+ne 370.
 Package pdftex.def Info: Requested size: 163.69432pt x 113.81102pt on input lin
-e 366.
- [12 <./graphes/exemple_noyaux.png> <./graphes/separation.png>]
-Overfull \hbox (9.08617pt too wide) in paragraph at lines 403--403
+e 370.
+ [13 <./graphes/ecart.png>]
+Overfull \hbox (9.08617pt too wide) in paragraph at lines 407--407
 []\T1/lmr/bx/n/17.28 Application des mé-thode de noyaux à la Ridge
  []
 
-[13 <./graphes/ecart.png>] [14]
+[14]
 Chapitre 3.
 [15
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 472--473
+Underfull \hbox (badness 10000) in paragraph at lines 476--477
 
  []
 
-<graphes/noyaux_gaussien.png, id=211, 566.86781pt x 411.78844pt>
+<graphes/noyaux_gaussien.png, id=229, 566.86781pt x 411.78844pt>
 File: graphes/noyaux_gaussien.png Graphic file (type png)
 <use graphes/noyaux_gaussien.png>
-Package pdftex.def Info: graphes/noyaux_gaussien.png  used on input line 483. o
-n input line 483.
+Package pdftex.def Info: graphes/noyaux_gaussien.png  used on input line 487. o
+n input line 487.
 Package pdftex.def Info: Requested size: 195.83774pt x 142.26378pt on input lin
-e 483.
+e 487.
 [16 <./graphes/noyaux_gaussien.png>]
-<graphes/noyaux_laplacien.png, id=221, 551.81157pt x 401.24907pt>
+<graphes/noyaux_laplacien.png, id=239, 551.81157pt x 401.24907pt>
 File: graphes/noyaux_laplacien.png Graphic file (type png)
 <use graphes/noyaux_laplacien.png>
-Package pdftex.def Info: graphes/noyaux_laplacien.png  used on input line 504. 
-on input line 504.
+Package pdftex.def Info: graphes/noyaux_laplacien.png  used on input line 508. 
+on input line 508.
 Package pdftex.def Info: Requested size: 195.64609pt x 142.26378pt on input lin
-e 504.
+e 508.
  [17 <./graphes/noyaux_laplacien.png>]
-<graphes/non_H_atom.png, id=233, 462.528pt x 345.4506pt>
+<graphes/non_H_atom.png, id=251, 462.528pt x 345.4506pt>
 File: graphes/non_H_atom.png Graphic file (type png)
 <use graphes/non_H_atom.png>
-Package pdftex.def Info: graphes/non_H_atom.png  used on input line 539. on inp
-ut line 539.
+Package pdftex.def Info: graphes/non_H_atom.png  used on input line 543. on inp
+ut line 543.
 Package pdftex.def Info: Requested size: 171.43614pt x 128.0374pt on input line
- 539.
+ 543.
 
 [18 <./graphes/non_H_atom.png>]
-<graphes/resultat_RBF_RMSE.png, id=247, 462.528pt x 345.4506pt>
+<graphes/resultat_RBF_RMSE.png, id=265, 462.528pt x 345.4506pt>
 File: graphes/resultat_RBF_RMSE.png Graphic file (type png)
 <use graphes/resultat_RBF_RMSE.png>
-Package pdftex.def Info: graphes/resultat_RBF_RMSE.png  used on input line 556.
- on input line 556.
-Package pdftex.def Info: Requested size: 190.4846pt x 142.26378pt on input line
- 556.
-<graphes/resultat_RBF_MAE.png, id=248, 462.528pt x 345.4506pt>
+Package pdftex.def Info: graphes/resultat_RBF_RMSE.png  used on input line 560.
+ on input line 560.
+Package pdftex.def Info: Requested size: 198.09976pt x 147.95424pt on input lin
+e 560.
+<graphes/resultat_RBF_MAE.png, id=266, 462.528pt x 345.4506pt>
 File: graphes/resultat_RBF_MAE.png Graphic file (type png)
 <use graphes/resultat_RBF_MAE.png>
-Package pdftex.def Info: graphes/resultat_RBF_MAE.png  used on input line 557. 
-on input line 557.
-Package pdftex.def Info: Requested size: 190.4846pt x 142.26378pt on input line
- 557.
-<graphes/resultat_RBF_R2.png, id=249, 462.528pt x 345.4506pt>
+Package pdftex.def Info: graphes/resultat_RBF_MAE.png  used on input line 561. 
+on input line 561.
+Package pdftex.def Info: Requested size: 198.09976pt x 147.95424pt on input lin
+e 561.
+<graphes/resultat_RBF_R2.png, id=267, 462.528pt x 345.4506pt>
 File: graphes/resultat_RBF_R2.png Graphic file (type png)
 <use graphes/resultat_RBF_R2.png>
-Package pdftex.def Info: graphes/resultat_RBF_R2.png  used on input line 558. o
-n input line 558.
-Package pdftex.def Info: Requested size: 190.4846pt x 142.26378pt on input line
- 558.
-
-Underfull \hbox (badness 10000) in paragraph at lines 563--564
+Package pdftex.def Info: graphes/resultat_RBF_R2.png  used on input line 562. o
+n input line 562.
+Package pdftex.def Info: Requested size: 198.09976pt x 147.95424pt on input lin
+e 562.
+<graphes/resultat_Lapla_RMSE.png, id=268, 462.528pt x 345.4506pt>
+File: graphes/resultat_Lapla_RMSE.png Graphic file (type png)
+<use graphes/resultat_Lapla_RMSE.png>
+Package pdftex.def Info: graphes/resultat_Lapla_RMSE.png  used on input line 57
+2. on input line 572.
+Package pdftex.def Info: Requested size: 198.09976pt x 147.95424pt on input lin
+e 572.
+<graphes/resultat_Lapla_MAE.png, id=269, 462.528pt x 345.4506pt>
+File: graphes/resultat_Lapla_MAE.png Graphic file (type png)
+<use graphes/resultat_Lapla_MAE.png>
+Package pdftex.def Info: graphes/resultat_Lapla_MAE.png  used on input line 573
+. on input line 573.
+Package pdftex.def Info: Requested size: 198.09976pt x 147.95424pt on input lin
+e 573.
+<graphes/resultat_Lapla_R2.png, id=270, 462.528pt x 345.4506pt>
+File: graphes/resultat_Lapla_R2.png Graphic file (type png)
+<use graphes/resultat_Lapla_R2.png>
+Package pdftex.def Info: graphes/resultat_Lapla_R2.png  used on input line 574.
+ on input line 574.
+Package pdftex.def Info: Requested size: 198.09976pt x 147.95424pt on input lin
+e 574.
+ [19 <./graphes/resultat_RBF_RMSE.png> <./graphes/resultat_RBF_MAE.png> <./grap
+hes/resultat_RBF_R2.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 581--582
 
  []
 
-[19 <./graphes/resultat_RBF_RMSE.png> <./graphes/resultat_RBF_MAE.png> <./graph
-es/resultat_RBF_R2.png>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 578.
- [20]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 578.
+[20 <./graphes/resultat_Lapla_RMSE.png> <./graphes/resultat_Lapla_MAE.png> <./g
+raphes/resultat_Lapla_R2.png>]
+<graphes/affichage_prediction.png, id=291, 987.2082pt x 489.2679pt>
+File: graphes/affichage_prediction.png Graphic file (type png)
+<use graphes/affichage_prediction.png>
+Package pdftex.def Info: graphes/affichage_prediction.png  used on input line 6
+01. on input line 601.
+Package pdftex.def Info: Requested size: 459.27303pt x 227.62204pt on input lin
+e 601.
+
+Overfull \hbox (41.01935pt too wide) in paragraph at lines 601--602
+ [] 
+ []
+
+[21 <./graphes/affichage_prediction.png>]
+Chapitre 4.
+[22
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 624--625
+
+ []
+
+[23]
+Underfull \hbox (badness 10000) in paragraph at lines 630--631
+
+ []
+
+
+Overfull \hbox (17.07204pt too wide) in paragraph at lines 633--634
+ [][] $\OT1/lmr/m/n/12 [1]$ \T1/lmr/m/n/12 M. Rupp. Int. J. Quan-tum Chem. 2015
+, 115, 10581073. DOI : 10.1002/qua.24954 
+ []
+
+
+Overfull \hbox (6.67581pt too wide) in paragraph at lines 636--640
+\T1/lmr/m/it/12 rones et mo-dèles gra-phiques \T1/lmr/m/n/12 dis-po-nible en li
+bre ac-cès sur []$\T1/lmtt/m/n/12 cedric . cnam . fr / vertigo /
+ []
+
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 642.
+[24]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 642.
  (Rapport_projet_v1.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 578.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 578.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 642.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 642.
 Package rerunfilecheck Info: File `Rapport_projet_v1.out' has not changed.
-(rerunfilecheck)             Checksum: CF5F3906548C71661EBC148D54D96795;1018.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 578.
+(rerunfilecheck)             Checksum: D83FE96A3F45DE9279B46EA1E0DC4C41;1196.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 642.
  ) 
 Here is how much of TeX's memory you used:
- 11168 strings out of 493312
- 162717 string characters out of 3138898
- 255617 words of memory out of 3000000
- 14423 multiletter control sequences out of 15000+200000
+ 11229 strings out of 493312
+ 163916 string characters out of 3138898
+ 255620 words of memory out of 3000000
+ 14456 multiletter control sequences out of 15000+200000
  65791 words of font info for 55 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,15n,40p,667b,458s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 42i,15n,40p,656b,444s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-rm.enc}{C:/Program Files/M
 iKTeX 2.9/fonts/enc/dvips/lm/lm-mathit.enc}{C:/Program Files/MiKTeX 2.9/fonts/e
 nc/dvips/lm/lm-mathsy.enc}{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ma
@@ -1132,9 +1201,9 @@ onts/type1/public/lm/lmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public
 /lm/lmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmtt12.pfb><C:
 /Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Pr
 ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on Rapport_projet_v1.pdf (21 pages, 1078189 bytes).
+Output written on Rapport_projet_v1.pdf (25 pages, 1316100 bytes).
 PDF statistics:
- 339 PDF objects out of 1000 (max. 8388607)
- 95 named destinations out of 1000 (max. 500000)
- 190 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 400 PDF objects out of 1000 (max. 8388607)
+ 116 named destinations out of 1000 (max. 500000)
+ 234 words of extra memory for PDF output out of 10000 (max. 10000000)
 

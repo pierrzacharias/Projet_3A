@@ -1,0 +1,12 @@
+\select@language {french}
+\beamer@sectionintoc {1}{Description des donn\IeC {\'e}es}{4}{0}{1}
+\beamer@sectionintoc {2}{Outils d'apprentissage automatique}{7}{0}{2}
+\beamer@subsectionintoc {2}{1}{Support Vector Machines methods (SVM)}{7}{0}{2}
+\beamer@subsectionintoc {2}{2}{Astuce du noyau}{11}{0}{2}
+\beamer@subsectionintoc {2}{3}{Ridge Regression}{13}{0}{2}
+\beamer@sectionintoc {3}{Exp\IeC {\'e}rimentations}{16}{0}{3}
+\beamer@subsectionintoc {3}{1}{Base d'entrainement et de Test du mod\IeC {\`e}le}{16}{0}{3}
+\beamer@subsectionintoc {3}{2}{Fonctions d'erreurs utilis\IeC {\'e}es}{17}{0}{3}
+\beamer@subsectionintoc {3}{3}{Recherche hyparam\IeC {\`e}tres optimaux}{18}{0}{3}
+\beamer@sectionintoc {4}{Perspectives}{22}{0}{4}
+\beamer@sectionintoc {5}{Conclusion}{23}{0}{5}
